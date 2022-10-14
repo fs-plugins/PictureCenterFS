@@ -1,0 +1,20 @@
+<!-- for:  
+PictureCenterFS7_Edit
+PictureCenterFS7_Setup 
+-->
+  <screen name="PictureCenterFS7_Setup2" position="center,center" size="1860,1020" title="PictureCenterFS" flags="wfNoBorder">
+    <widget name="bgr2" position="0,0" zPosition="0" size="1860,1020" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/fHD/pictures/bg.png" transparent="0" alphatest="on"/> 
+	<widget source="Title" render="Label" position="1390,35" size="440,200" zPosition="2" font="Regular;32" halign="center" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
+    <eLabel position="1365,30"  size="4,875" backgroundColor="#5d5a3a"/>
+    <eLabel position="40,930"  size="1795,4" backgroundColor="#5d5a3a"/> 
+	<widget name="balken" position="0,950" zPosition="1" size="1860,47" font="Regular;32" halign="center" foregroundColor="#5d5a3a" backgroundColor="#000000" transparent="1" />
+	<widget name="config" position="50,40" size="1300,880" zPosition="1" transparent="0" backgroundColor="#000000" scrollbarMode="showOnDemand" />
+	<widget name="pic_red" pixmap="skin_default/buttons/key_red.png" position="1400,740" size="40,25" backgroundColor="#000000" alphatest="blend" />
+    <widget name="pic_green" pixmap="skin_default/buttons/key_green.png" position="1400,785" size="40,25" backgroundColor="#000000" alphatest="blend" />
+    <widget name="pic_yellow" pixmap="skin_default/buttons/key_yellow.png" position="1400,830" size="40,25" backgroundColor="#000000" alphatest="blend" />
+    <widget name="pic_blue" pixmap="skin_default/buttons/key_blue.png" position="1400,875" size="40,25" backgroundColor="#000000" alphatest="blend" />
+	<widget name="key_red" position="1450,740" zPosition="1" size="380,45" font="Regular;22" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+    <widget name="key_green" position="1450,785" zPosition="1" size="380,45" font="Regular;22" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+    <widget name="key_yellow" position="1450,830" zPosition="1" size="380,45" font="Regular;22" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+    <widget name="key_blue" position="1450,875" zPosition="1" size="380,45" font="Regular;22" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+  </screen>

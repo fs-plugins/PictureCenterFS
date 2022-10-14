@@ -1,0 +1,17 @@
+<!-- for:  
+PictureCenterFS7_Edit
+PictureCenterFS7_Setup 
+-->
+<screen name="PictureCenterFS7_Setup2" position="center,70" size="560,400" title="PictureCenterFS - edit" backgroundColor="#20343c4f">
+    <widget name="bgr2" position="0,0" zPosition="0" size="560,400" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/fHD/pictures/bg.png" transparent="0" alphatest="on"/> 
+   <widget name="balken" position="10,350" zPosition="1" size="550,47"  font="Regular;20" foregroundColor="#FFD700" backgroundColor="#20343c4f" transparent="0" />
+  <widget name="config" position="10,45" size="540,300" zPosition="1" transparent="0" backgroundColor="#000000" scrollbarMode="showOnDemand" />
+  <widget name="pic_red" pixmap="skin_default/buttons/button_red.png" position="10,10" size="15,16" backgroundColor="#000000" alphatest="blend" />
+  <widget name="pic_green" pixmap="skin_default/buttons/button_green.png" position="155,10" size="15,16" backgroundColor="#000000" alphatest="blend" />
+  <widget name="pic_yellow" pixmap="skin_default/buttons/button_yellow.png" position="300,10" size="15,16" backgroundColor="#000000" alphatest="blend" />
+  <widget name="pic_blue" pixmap="skin_default/buttons/button_blue.png" position="445,10" size="15,16" backgroundColor="#000000" alphatest="blend" />
+  <widget name="key_red" position="30,11" zPosition="1" size="110,20" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#9f1313" transparent="1" />
+  <widget name="key_green" position="175,11" zPosition="1" size="110,20" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#1f771f" transparent="1" />
+  <widget name="key_yellow" position="320,11" zPosition="1" size="110,20" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#9f1313" transparent="1" />
+  <widget name="key_blue" position="465,11" zPosition="1" size="100,20" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#1f771f" transparent="1" />
+</screen>
