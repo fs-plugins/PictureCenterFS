@@ -2,15 +2,6 @@
 #
 #    PictureCenterFS for VU+
 #    Coded by shadowrider (c)2011
-#    support: www.fs-plugins.de
-#    Chrashlogs, Vorschlaege, Beschwerden usw. bitte an plugins (at) fs-plugins.de
-#
-#    This plugin is licensed under the Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0). 
-#    To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ 
-#    or send a letter to CreativeCommons, 559 Nathan Abbott Way, Stanford, California 94305, USA
-#
-#    In addition, this plugin may only be distributed and executed on
-#    hardware which is licensed by Vu+ 
 ################################################################################################################
 
 
@@ -958,28 +949,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
 
 
 	def showAbout(self,args=None):
-            web1="fs-plugins.de/"
-            web="https://www."+web1
-            text_0=""
-
-            try:
-                from urllib import urlencode
-                from urllib2 import urlopen
-                param = {'plugin' : 'picturecenterfs'}
-                data = urlencode(param)
-                lese = urlopen(web+"wbr2FS/versionsinfo.php",data).read()
-                startPos = lese.find("version")
-	        endPos = lese.find("version_ende")
-	        if startPos != -1 and endPos != -1:
-                     version2=lese[startPos+8:endPos].strip() 
-                     if int(version2.replace(".",""))> int(version.replace(".","")):
-                         text_0= "\n\n(neue Version online: "+str(version2)+")\n\n"
-                     else:
-                         text_0="\n\n(diese Version ist aktuell)\n\n"
-            except:
-               pass
-            text2 = text_0+'\nAutor: shadowrider\n' + web + 'plugins/' 
-            self.session.open(MessageBox,_("PictureCenterFS\n Version: %s %s" % (version, text2)), MessageBox.TYPE_INFO)
+            self.session.open(MessageBox,"PictureCenterFS\nAutor: shadowrider\n", MessageBox.TYPE_INFO)
 
 
 ######################################################################
