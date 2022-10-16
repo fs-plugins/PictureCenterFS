@@ -189,7 +189,7 @@ try:
     from PIL import ImageDraw
     from PIL import ExifTags
     from PIL.ExifTags import TAGS
-    pil_vers = Image.VERSION
+    pil_vers = Image.__version__
     if pil_vers < "1.1.6":
         pil_install = "veraltet"
     else:
@@ -878,10 +878,10 @@ class PictureCenterFS7(Screen, HelpableScreen):
         if pic:
             if thumbquali.value == 0:
                 try:
+                    # TODO CHECK
                     r = self.picload.getThumbnail(str(pic))  # == 1:
                 except:
                     pass
-
             else:
                 self.picload.startDecode(pic)
 
@@ -3132,8 +3132,8 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
         self.configparser2.set("last_path", "path", self.merkpath)
         self.configparser2.set("last_path", "read_sub", vollbildsets[3])
         self.configparser2.set("last_path", "sortierung", vollbildsets[0].lower())
-        self.configparser2.set("last_path", "infoline", vollbildsets[1])
-        self.configparser2.set("last_path", "videoplay", vollbildsets[2])
+        self.configparser2.set("last_path", "infoline", vollbildsets[1] or "")
+        self.configparser2.set("last_path", "videoplay", vollbildsets[2] or "")
         ind = self.index - 1
         if ind < 0 or self.art == "random":
             self.index = 0
