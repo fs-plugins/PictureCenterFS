@@ -56,6 +56,9 @@ import time
 import sys
 import threading
 
+from .files import PictureCenterFS7_Filemenu, backup, save_mark
+
+
 version = "8.41"
 dat = "/etc/ConfFS/PictureCenterFS.dat"
 all_plugin_path = "/usr/lib/enigma2/python/Plugins/Extensions/"
@@ -589,7 +592,6 @@ class PictureCenterFS7(Screen, HelpableScreen):
         elif self.art == "file":
             self.latest_dir2 = self.latest_dir.replace(os.path.basename(self.latest_dir), "")
             self.index = self["pc_list"].getIndex()
-            from files import PictureCenterFS7_Filemenu
             self.session.openWithCallback(self.KeyRed2, PictureCenterFS7_Filemenu, self.latest_dir)
 
     def KeyRed2(self, edit=0):
@@ -753,11 +755,9 @@ class PictureCenterFS7(Screen, HelpableScreen):
             choice[1]()
 
     def backup(self):
-        from files import backup
         backup(self.session).start(3)
 
     def restore(self):
-        from files import backup
         backup(self.session).start(5)
 
     def showConfig(self):
@@ -934,7 +934,6 @@ class PictureCenterFS7(Screen, HelpableScreen):
 
     def save_marks3(self, answer):
         if answer == True and self.safe_name:
-            from files import save_mark
             save_mark(self.session, name)
             self.safe_name = None
             #self.marker_listen=[i for i in os.listdir("/etc/ConfFS/") if i.endswith('_pcfs.txt')]
@@ -2973,7 +2972,6 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
             pic = self.rot_source
         else:
             pic = self.filelist[self.akt_index][0]
-        from files import PictureCenterFS7_Filemenu
         self.session.openWithCallback(self.Pic_tools_back, PictureCenterFS7_Filemenu, pic, self.rotat_pic)
 
     def Pic_tools_back(self, edit=None):
