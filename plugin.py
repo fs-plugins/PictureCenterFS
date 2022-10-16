@@ -363,15 +363,13 @@ class PictureCenterFS7(Screen, HelpableScreen):
         self.list = []
         self.filelist = []
         if pil_install != "ok":
+            msgtxt = []
             if pil_install == "veraltet":
-                self.list.append(("/tmp", "Modul PIL Version is too old!", 0, "all", False, "bookmark", 2, False, None))
+                msgtxt.append("Modul PIL Version is too old!")
             else:
-                self.list.append(("/tmp", "Modul PIL is not installed!", 0, "all", False, "bookmark", 2, False, None))
-            self.list.append(("/tmp", " ", 0, "all", False, "bookmark", 2, False, None))
-            self.list.append(("/tmp", "Please install current version", 0, "all", False, "bookmark", 2, False, None))
-            self.list.append(("/tmp", "of python-imaging from feed", 0, "all", False, "bookmark", 2, False, None))
-            self.list.append(("/tmp", "  or", 0, "all", False, "bookmark", 2, False, None))
-            self.list.append(("/tmp", "install PIL Version > 1.1.5", 0, "all", False, "bookmark", 2, False, None))
+                msgtxt.append("Modul PIL is not installed!")
+            for txt in msgtxt + [" ", "Please install current version", "of python-imaging from feed", "  or", "install PIL Version > 1.1.5"]:
+                self.list.append(("/tmp", txt, 0, "all", False, "bookmark", 2, False, False, None))
 
         else:
             self.dirlist = 0
