@@ -37,6 +37,7 @@ from Components.Label import Label
 from Components.Console import Console
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServicePosition import ServicePositionGauge
+from Components.Pixmap import Pixmap
 
 from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, RT_VALIGN_CENTER, RT_HALIGN_RIGHT, RT_WRAP
 from enigma import ePoint, eSize
@@ -335,7 +336,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
         else:
             self.picload.PictureData.get().append(self.showPic)
         self.onLayoutFinish.append(self.setConf)
-        self.start()
+        self.onLayoutFinish.append(self.start)
 
     def check_failed(self):
         self.session.openWithCallback(self.KeyExit, MessageBox, _("Modul PIL is not installed!\nPlease install current version of python-imaging from feed\nor install PIL > 1.1.5"), type=MessageBox.TYPE_ERROR)
@@ -363,14 +364,14 @@ class PictureCenterFS7(Screen, HelpableScreen):
         self.filelist = []
         if pil_install != "ok":
             if pil_install == "veraltet":
-                self.list.append(("/tmp", "Modul PIL Version is too old!", 0, "all", False, "bookmark", 2, False))
+                self.list.append(("/tmp", "Modul PIL Version is too old!", 0, "all", False, "bookmark", 2, False, None))
             else:
-                self.list.append(("/tmp", "Modul PIL is not installed!", 0, "all", False, "bookmark", 2, False))
-            self.list.append(("/tmp", " ", 0, "all", False, "bookmark", 2, False))
-            self.list.append(("/tmp", "Please install current version", 0, "all", False, "bookmark", 2, False))
-            self.list.append(("/tmp", "of python-imaging from feed", 0, "all", False, "bookmark", 2, False))
-            self.list.append(("/tmp", "  or", 0, "all", False, "bookmark", 2, False))
-            self.list.append(("/tmp", "install PIL Version > 1.1.5", 0, "all", False, "bookmark", 2, False))
+                self.list.append(("/tmp", "Modul PIL is not installed!", 0, "all", False, "bookmark", 2, False, None))
+            self.list.append(("/tmp", " ", 0, "all", False, "bookmark", 2, False, None))
+            self.list.append(("/tmp", "Please install current version", 0, "all", False, "bookmark", 2, False, None))
+            self.list.append(("/tmp", "of python-imaging from feed", 0, "all", False, "bookmark", 2, False, None))
+            self.list.append(("/tmp", "  or", 0, "all", False, "bookmark", 2, False, None))
+            self.list.append(("/tmp", "install PIL Version > 1.1.5", 0, "all", False, "bookmark", 2, False, None))
 
         else:
             self.dirlist = 0
@@ -3651,6 +3652,8 @@ def main(session, **kwargs):
     try:
         session.open(PictureCenterFS7)
     except:
+        import traceback
+        traceback.print_exc()
         pass
     #else:
     #   from Tools import Notifications
