@@ -1600,15 +1600,15 @@ class Pic_Thumb(Screen, HelpableScreen):
         self.fertig = 1
         size_w = getDesktop(0).size().width()
         size_h = getDesktop(0).size().height()
-        self.thumbsX = size_w / (self.spaceX + self.picX)  # thumbnails in X
-        self.thumbsY = size_h / (self.spaceY + self.picY)  # thumbnails in Y
-        self.thumbsC = self.thumbsX * self.thumbsY  # all thumbnails
+        self.thumbsX = int(size_w / (self.spaceX + self.picX))  # thumbnails in X
+        self.thumbsY = int(size_h / (self.spaceY + self.picY))  # thumbnails in Y
+        self.thumbsC = int(self.thumbsX * self.thumbsY)  # all thumbnails
         self.positionlist = []
         skincontent = ""
 
         posX = -1
         for x in range(self.thumbsC):
-            posY = x / self.thumbsX
+            posY = int(x / self.thumbsX)
             posX += 1
             if posX >= self.thumbsX:
                 posX = 0
