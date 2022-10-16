@@ -3138,7 +3138,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
         if ind < 0 or self.art == "random":
             self.index = 0
 
-        self.configparser2.set("last_path", "index", ind)
+        self.configparser2.set("last_path", "index", str(ind))
         fp = open(dat, "w")
         self.configparser2.write(fp)
         fp.close()
