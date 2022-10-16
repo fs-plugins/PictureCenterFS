@@ -42,7 +42,11 @@ from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_HALIGN_LEFT, 
 from enigma import ePoint, eSize
 from enigma import ePicLoad, eTimer, getDesktop
 from enigma import iPlayableService, eServiceReference
-from ConfigParser import ConfigParser, DuplicateSectionError
+try:
+    from ConfigParser import ConfigParser, DuplicateSectionError
+except ImportError:
+    from configparser import ConfigParser, DuplicateSectionError
+
 import random
 import os
 import os.path
@@ -204,6 +208,8 @@ sorten2.append(("random", _("Random")))
 fullbildsort = NoSave(ConfigSelection(default="all", choices=sorten2))
 saver_random = NoSave(ConfigSelection(default="all", choices=sorten2))
 
+if not os.path.exists("/etc/ConfFS/"):
+    os.makedirs("/etc/ConfFS/")
 
 if not os.path.exists(dat):
     d = open(dat, "w")
@@ -3164,7 +3170,7 @@ from os import path as os_path, symlink, listdir, unlink, readlink, remove
 from enigma import eTimer
 from Components.Console import Console
 from Components.Harddisk import harddiskmanager  # global harddiskmanager
-from Tools.Directories import isMount, removeDir, createDir
+from Tools.Directories import removeDir, createDir
 
 from xml.etree.cElementTree import parse as cet_parse
 
@@ -3427,7 +3433,7 @@ class AutoMount():
             if readlink(hdd_dir) != path:
                 remove(hdd_dir)
                 symlink(path, hdd_dir)
-        elif isMount(hdd_dir) is False:
+        elif os_path.ismount(hdd_dir) is False:
             if os_path.isdir(hdd_dir):
                 self.rm_rf(hdd_dir)
         try:
