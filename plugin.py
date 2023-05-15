@@ -56,14 +56,15 @@ from .files import PictureCenterFS7_Filemenu, backup, save_mark
 
 version = "9.0beta"
 DPKG = False
-dat = join(resolveFilename(SCOPE_SYSETC), "ConfFS/PictureCenterFS.dat")
-plugin_path = join(resolveFilename(SCOPE_PLUGINS), "Extensions/PictureCenterFS")
-skin_ext = plugin_path + "/skin/"
+SYSETC = resolveFilename(SCOPE_SYSETC)
+XML_FSTAB = join(SYSETC, "enigma2/automounts.xml")
+datpath = join(SYSETC, "ConfFS/")
+datfile = join(SYSETC, "ConfFS/PictureCenterFS.dat")
+skin_ext = join(resolveFilename(SCOPE_PLUGINS), "Extensions/PictureCenterFS/skin/")
 skin_ext_zusatz = ""
 typ_pic = (".jpg", ".jpeg", ".jpe", ".bmp", ".png")
 typ_mov = (".mpg", ".mov", ".mp4", ".mkv", ".avi", ".mpeg", ".mts", ".m2ts", ".wmv", ".flv")
 # pics = ["txt_pin.png","pic.png","up.png","pin.png","ordner.png","err_pin.png","mov.png","pcfs_play.png","pcfs_random.png","pcfs_pause.png"]
-XML_FSTAB = "/etc/enigma2/automounts.xml"
 
 def getScale():
 	return AVSwitch().getFramebufferScale()
@@ -165,12 +166,12 @@ sorten2 = sorten
 sorten2.append(("random", _("Random")))
 fullbildsort = NoSave(ConfigSelection(default="all", choices=sorten2))
 saver_random = NoSave(ConfigSelection(default="all", choices=sorten2))
-if not exists("/etc/ConfFS/"):
-	makedirs("/etc/ConfFS/")
-if not exists(dat):
-	open(dat, "w").close()
+if not exists(datpath):
+	makedirs(datpath)
+if not exists(datfile):
+	open(datfile, "w").close()
 configparser1 = ConfigParser()
-configparser1.read(dat)
+configparser1.read(datfile)
 if configparser1.has_section("settings"):
 	l1 = configparser1.items("settings")
 	for nam in l1:
@@ -295,7 +296,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
 	def start(self):
 		self.limit = getrecursionlimit()
 		setrecursionlimit(30000)
-		self.marker_listen = [i for i in listdir("/etc/ConfFS/") if i.endswith('_pcfs.txt')]
+		self.marker_listen = [i for i in listdir(datpath) if i.endswith('_pcfs.txt')]
 		self.list = []
 		self.filelist = []
 		if pil_install != "ok":
@@ -309,7 +310,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
 		else:
 			self.dirlist = 0
 			self.configparser2 = ConfigParser()
-			self.configparser2.read(dat)
+			self.configparser2.read(datfile)
 			sections2 = self.configparser2.sections()
 			for section in sections2:
 				if section != "settings":
@@ -353,7 +354,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
 				if len(self.marker_listen):
 					self.list.append(("/tmp/pcfs_mark", _("Marked pictures"), 0, None, False, "filelist", 1, True, False, txtPin))
 					for x in self.marker_listen:
-						self.list.append(("/etc/ConfFS/" + x, basename(x.strip()), 0, None, False, "filelist", 1, infoline.value, playvideo.value, txtPin))
+						self.list.append((datpath + x, basename(x.strip()), 0, None, False, "filelist", 1, infoline.value, playvideo.value, txtPin))
 		self.st_aktiv = True
 		self["pc_list"].setList(self.list)
 		self.setTitle("PictureCenterFS" + "  " + version)
@@ -668,7 +669,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
 		global exclude
 		global distance_infoline2
 		configparser1 = ConfigParser()
-		configparser1.read(dat)
+		configparser1.read(datfile)
 		if configparser1.has_section("settings"):
 			l1 = configparser1.items("settings")
 			for nam in l1:
@@ -810,10 +811,11 @@ class PictureCenterFS7(Screen, HelpableScreen):
 		self.session.openWithCallback(self.save_marks2, VirtualKeyBoard, title=_("Enter File-Name:"), text="")
 
 	def save_marks2(self, name=None):
+		self.safe_name = ""
 		if name:
 			name = name.split(".")
 			self.safe_name = "%s_pcfs.txt" % name[0]
-		if pathExists("/etc/ConfFS/%s" % self.safe_name):
+		if pathExists(join(datpath, self.safe_name)):
 			self.safe_name = name
 			self.session.openWithCallback(self.save_marks3, MessageBox, _("file exist on this path, overwrite?"), MessageBox.TYPE_YESNO)
 		else:
@@ -822,12 +824,12 @@ class PictureCenterFS7(Screen, HelpableScreen):
 	def save_marks3(self, answer):
 		if answer == True and self.safe_name:
 			save_mark(self.session, answer)
-			self.safe_name = None
-			#self.marker_listen=[i for i in listdir("/etc/ConfFS/") if i.endswith('_pcfs.txt')]
+			self.safe_name = ""
+			#self.marker_listen=[i for i in listdir(datpath) if i.endswith('_pcfs.txt')]
 			self.start()
 
 	def delete_marks(self):
-		listen = [[x, "/etc/ConfFS/" + x] for x in self.marker_listen]
+		listen = [[x, datpath + x] for x in self.marker_listen]
 		self.session.openWithCallback(self.delete_marks2, ChoiceBox, title=_("PictureCenterFS - ") + _('Delete picture list file'), list=listen)
 
 	def delete_marks2(self, answer):
@@ -945,7 +947,7 @@ class PictureCenterFS7_Edit(Screen, ConfigListScreen, HelpableScreen):
 		#self.read_sub=True
 		path = ""
 		self.configparser = ConfigParser()
-		self.configparser.read(dat)
+		self.configparser.read(datfile)
 		sections = self.configparser.sections()
 		self.conf_name = NoSave(ConfigText(default=self.name, fixed_size=False))
 		self.conf_path = NoSave(ConfigText(default=path, fixed_size=False))
@@ -1041,7 +1043,7 @@ class PictureCenterFS7_Edit(Screen, ConfigListScreen, HelpableScreen):
 	def delete2(self, call):
 		if call:
 			self.configparser.remove_section(self.name)
-			with open(dat, "w") as fp:
+			with open(datfile, "w") as fp:
 				self.configparser.write(fp)
 			self.close()
 
@@ -1064,7 +1066,7 @@ class PictureCenterFS7_Edit(Screen, ConfigListScreen, HelpableScreen):
 
 	def save1(self):
 		self.configparser2 = ConfigParser()
-		self.configparser2.read(dat)
+		self.configparser2.read(datfile)
 		if len(self.altname) > 0 and self.configparser2.has_section(self.altname):
 			self.configparser2.remove_section(self.altname)
 			self.session.openWithCallback(self.save2, MessageBox,self.altname +_("Bookmark overwrite?"), MessageBox.TYPE_YESNO)
@@ -1279,7 +1281,7 @@ class PictureCenterFS7_Setup2(Screen, ConfigListScreen, HelpableScreen):
 
 		config.plugins.PictureCenterFS.hauptmenu.save()
 		self.configparser = ConfigParser()
-		self.configparser.read(dat)
+		self.configparser.read(datfile)
 
 		if self.configparser.has_section("settings"):
 			self.configparser.remove_section("settings")
@@ -2917,7 +2919,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 
 	def Exit(self):
 		self.configparser2 = ConfigParser()
-		self.configparser2.read(dat)
+		self.configparser2.read(datfile)
 		if self.configparser2.has_section("last_path"):
 			self.configparser2.remove_section("last_path")
 		self.configparser2.add_section("last_path")
@@ -2992,14 +2994,12 @@ class AutoMount():
 		automounts = []
 		self.automounts = {}
 		self.activeMountsCounter = 0
-
 		if not exists(XML_FSTAB):
 			return
 		tree = cet_parse(XML_FSTAB).getroot()
 
 		def getValue(definitions, default):
 			# Initialize Output
-			ret = ""
 			# How many definitions are present
 			Len = len(definitions)
 			return Len > 0 and definitions[Len - 1].text or default
@@ -3409,7 +3409,7 @@ def Plugins(**kwargs):
 	plist = []
 	plist.append(PluginDescriptor(name="PictureCenterFS", description=_("see your picture comfortable and more"), where=[PluginDescriptor.WHERE_PLUGINMENU], icon="PictureCenterFS.png", fnc=main))
 	configparser1 = ConfigParser()
-	configparser1.read(dat)
+	configparser1.read(datfile)
 	if configparser1.has_section("settings") and configparser1.has_option("settings", "saver_on"):
 		if configparser1.get("settings", "saver_on") != "False":
 			plist.append(PluginDescriptor(name="Screensaver PCFS", description=_("yor picture as screensaver"), where=[PluginDescriptor.WHERE_PLUGINMENU], icon="PictureCenterFS.png", fnc=screensaver))
