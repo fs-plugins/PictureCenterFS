@@ -1,19 +1,15 @@
-# -*- coding: utf-8 -*-
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-import gettext
-
+from gettext import bindtextdomain, dgettext, gettext
 
 def localeInit():
-	gettext.bindtextdomain("PictureCenterFS", resolveFilename(SCOPE_PLUGINS, "Extensions/PictureCenterFS/locale"))
-
+	bindtextdomain("PictureCenterFS", resolveFilename(SCOPE_PLUGINS, "Extensions/PictureCenterFS/locale"))
 
 def _(txt):
-	t = gettext.dgettext("PictureCenterFS", txt)
+	t = dgettext("PictureCenterFS", txt)
 	if t == txt:
-		t = gettext.gettext(txt)
+		t = gettext(txt)
 	return t
-
 
 localeInit()
 language.addCallback(localeInit)

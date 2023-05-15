@@ -1,39 +1,35 @@
 <!-- status-pixmaps: "txt_pin.png","pic.png","up.png","pin.png","ordner.png","err_pin.png","mov.png" -->
-  <screen name="PictureCenterFS7" position="center,center" size="1220,660" title="PictureCenterFS" flags="wfNoBorder" >
-    <widget name="bgr2" position="0,0" zPosition="0" size="1220,660" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/HD/pictures/bg.png" transparent="0" alphatest="on"/> 
+<screen name="PictureCenterFS7" position="center,center" size="1220,660" title="PictureCenterFS" flags="wfNoBorder" >
+	<widget name="bgr2" position="0,0" zPosition="0" size="1220,660" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/HD/pictures/bg.png" transparent="0" alphatest="on"/>
 	<widget source="Title" render="Label" position="885,40" size="275,60" zPosition="2" font="Regular;24" halign="center" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
 	<widget source="pc_list" render="Listbox" position="20,30" size="850,570" zPosition="2" scrollbarMode="showOnDemand" enableWrapAround="1" scrollbarWidth="6" foregroundColor="white" backgroundColor="#000000" foregroundColorSelected="#000000" backgroundColorSelected="blue" transparent="1" >
 		<convert type="TemplatedMultiContent">
-			{"template":[ 
-                        MultiContentEntryText(pos = (55, 3), size = (770, 24), flags = RT_HALIGN_LEFT, text = 1), 
-			MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (26, 26), png = 9), # index 9 is the status pixmap)
-			],
-			"fonts": [gFont("Regular", 22)],
-			"itemHeight": 30
+			{"template":[
+									MultiContentEntryText(pos = (55, 3), size = (770, 24), flags = RT_HALIGN_LEFT, text = 1),
+									MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (26, 26), png = 9), # index 9 is the status pixmap)
+									], "fonts": [gFont("Regular", 22)], "itemHeight": 30
 			}
 		</convert>
 	</widget>
-
-    <eLabel position="875,30"  size="3,575" backgroundColor="#5d5a3a"/>
-    <eLabel position="20,610"  size="1170,3" backgroundColor="#5d5a3a"/>	
+	<eLabel position="875,30"  size="3,575" backgroundColor="#5d5a3a"/>
+	<eLabel position="20,610"  size="1170,3" backgroundColor="#5d5a3a"/>
 	<widget name="button_red" pixmap="skin_default/buttons/key_red.png" position="885,485" size="40,25" backgroundColor="#000000" alphatest="blend" />
-    <widget name="button_green" pixmap="skin_default/buttons/key_green.png" position="885,515" size="40,25" backgroundColor="#000000" alphatest="blend" />
-    <widget name="button_yellow" pixmap="skin_default/buttons/key_yellow.png" zPosition="2" position="885,545" size="40,25" backgroundColor="#000000" alphatest="blend" />
-    <widget name="button_blue" pixmap="skin_default/buttons/key_blue.png" position="885,575" size="40,25" backgroundColor="#000000" alphatest="blend" />
+	<widget name="button_green" pixmap="skin_default/buttons/key_green.png" position="885,515" size="40,25" backgroundColor="#000000" alphatest="blend" />
+	<widget name="button_yellow" pixmap="skin_default/buttons/key_yellow.png" zPosition="2" position="885,545" size="40,25" backgroundColor="#000000" alphatest="blend" />
+	<widget name="button_blue" pixmap="skin_default/buttons/key_blue.png" position="885,575" size="40,25" backgroundColor="#000000" alphatest="blend" />
 	<widget name="key_red" position="930,485" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-    <widget name="key_green" position="930,515" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-    <widget name="key_yellow" position="930,545" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-    <widget name="key_blue" position="930,575" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-    <widget name="key_ok" position="70,620" zPosition="1" size="280,30" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" noWrap="1"/>
-    <widget name="button_ok" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_ok.png" position="30,620" size="30,30" zPosition="1" alphatest="blend" />
-    <widget name="thumb" position="905,100" zPosition="2" size="280,280" alphatest="blend" />
-    <widget name="button_help" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_help.png" position="1140,620" size="40,30" zPosition="1" alphatest="blend" />
-    <widget name="button_menu" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_menu.png" position="1100,620" size="40,30" zPosition="1" alphatest="blend" />
-    <widget name="button_epg" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_epg.png" position="1060,620" size="40,30" zPosition="1" alphatest="blend" />
-    <widget name="key_0" position="410,620" zPosition="1" size="280,30" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-    <widget name="button_0" pixmap="skin_default/buttons/key_0.png" position="370,620" size="40,30" zPosition="1" alphatest="blend" />
+	<widget name="key_green" position="930,515" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+	<widget name="key_yellow" position="930,545" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+	<widget name="key_blue" position="930,575" zPosition="1" size="260,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+	<widget name="key_ok" position="70,620" zPosition="1" size="280,30" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" noWrap="1"/>
+	<widget name="button_ok" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_ok.png" position="30,620" size="30,30" zPosition="1" alphatest="blend" />
+	<widget name="thumb" position="905,100" zPosition="2" size="280,280" alphatest="blend" />
+	<widget name="button_help" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_help.png" position="1140,620" size="40,30" zPosition="1" alphatest="blend" />
+	<widget name="button_menu" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_menu.png" position="1100,620" size="40,30" zPosition="1" alphatest="blend" />
+	<widget name="button_epg" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_epg.png" position="1060,620" size="40,30" zPosition="1" alphatest="blend" />
+	<widget name="key_0" position="410,620" zPosition="1" size="280,30" font="Regular;16" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+	<widget name="button_0" pixmap="skin_default/buttons/key_0.png" position="370,620" size="40,30" zPosition="1" alphatest="blend" />
 	<widget name="Bez_sort"  position="887,430" size="150,25" font="Regular;18" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
-    <widget name="key_sort"  position="895,458" size="280,25" font="Regular;16" halign="left" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
-    <widget name="dats" position="895,400" size="330,25" font="Regular;18" halign="center" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-
-  </screen>
+	<widget name="key_sort"  position="895,458" size="280,25" font="Regular;16" halign="left" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
+	<widget name="dats" position="895,400" size="330,25" font="Regular;18" halign="center" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+</screen>

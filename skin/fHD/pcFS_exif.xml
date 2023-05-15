@@ -1,22 +1,21 @@
-  <screen name="Show_Exif" position="center,center" size="1920,1080" title="PictureCenterFS" flags="wfNoBorder">
-    <ePixmap position="40,40" zPosition="-10" size="1860,1020" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/fHD/pictures/bg.png" transparent="0" alphatest="on"/> 
+<screen name="Show_Exif" position="center,center" size="1920,1080" title="PictureCenterFS" flags="wfNoBorder">
+	<ePixmap position="40,40" zPosition="-10" size="1860,1020" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/fHD/pictures/bg.png" transparent="0" alphatest="on"/>
 	<widget source="Title" render="Label" position="1390,80" size="440,200" font="Regular;32" halign="center" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
-    <eLabel position="1365,80"  size="4,855" backgroundColor="#5d5a3a"/>
-    <eLabel position="80,950"  size="1755,4" backgroundColor="#5d5a3a"/>
+	<eLabel position="1365,80"  size="4,855" backgroundColor="#5d5a3a"/>
+	<eLabel position="80,950"  size="1755,4" backgroundColor="#5d5a3a"/>
 	<ePixmap pixmap="skin_default/buttons/key_red.png" position="90,980" size="40,25" alphatest="on" />
 	<widget source="key_red" render="Label" position="130,980" zPosition="1" size="140,30" font="Regular;20" halign="left" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
 	<widget name="scrolltext" position="0,980" zPosition="1" size="1860,40" font="Regular;32" halign="center" foregroundColor="#5d5a3a" backgroundColor="#000000" transparent="1" />
-    <widget source="menu" render="Listbox" position="70,80" size="1280,850" scrollbarMode="showOnDemand" selectionDisabled="1" transparent="1" >
+	<widget source="menu" render="Listbox" position="70,80" size="1280,850" scrollbarMode="showOnDemand" selectionDisabled="1" transparent="1" >
 		<convert type="TemplatedMultiContent">
-		{
-			"template": [  MultiContentEntryText(pos = (25, 15), size = (370, 30), flags = RT_HALIGN_LEFT, color= 0xffb340, text = 0), MultiContentEntryText(pos = (360, 5), size = (970, 30), flags = RT_HALIGN_LEFT, text = 1)],
-			"fonts": [gFont("Regular", 26)],
-			"itemHeight": 40
-		}
+			{"template":
+			 	[
+				MultiContentEntryText(pos = (25, 15), size = (370, 30), flags = RT_HALIGN_LEFT, color= 0xffb340, text = 0),
+				MultiContentEntryText(pos = (360, 5), size = (970, 30), flags = RT_HALIGN_LEFT, text = 1)
+				], "fonts": [gFont("Regular", 26)], "itemHeight": 40
+			}
 		</convert>
 	</widget>
-    <widget name="thumb" position="1400,125" zPosition="2" size="420,420" alphatest="blend" />
-
+	<widget name="thumb" position="1400,125" zPosition="2" size="420,420" alphatest="blend" />
 	<widget source="comment" render="Label" position="1390,600" zPosition="1" size="500,400" font="Regular;32" halign="left" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
-
-  </screen>
+</screen>

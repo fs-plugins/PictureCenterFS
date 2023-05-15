@@ -1,437 +1,435 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR ORGANIZATION
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: PictureCenterFS\n"
 "POT-Creation-Date: 2023-05-15 15:19+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: \n"
 "Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: shadowrider <plugins@fselbig.de>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=cp1252\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: pygettext.py 1.5\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Generator: Poedit 3.3\n"
 
 #: ..\files.py:52
 msgid "Copy selected/displayed file"
-msgstr ""
+msgstr "Ausgewählte/angezeigte Datei kopieren"
 
 #: ..\files.py:54
 msgid "save changes in the original image"
-msgstr ""
+msgstr "Original-Bild überschreiben"
 
 #: ..\files.py:55
 msgid "Options for edited image"
-msgstr ""
+msgstr "Optionen für bearbeitetes Bild"
 
 #: ..\files.py:57
 msgid "Move selected/displayed file"
-msgstr ""
+msgstr "Ausgewählte/angezeigte Datei verschieben"
 
 #: ..\files.py:58
 msgid "Delete selected/displayed file"
-msgstr ""
+msgstr "Ausgewählte/angezeigte Datei löschen"
 
 #: ..\files.py:69
 msgid "Options for selected/displayed file"
-msgstr ""
+msgstr "Optionen für ausgewählte/angezeigte Datei"
 
 #: ..\files.py:125 ..\files.py:191
 msgid "selceted File is:"
-msgstr ""
+msgstr "Gewählte Datei:"
 
 #: ..\files.py:126
 msgid "Do you really overwrite this file?"
-msgstr ""
+msgstr "Diese Datei wirklich überschreiben?"
 
 #: ..\files.py:135
 msgid "file successfully saved"
-msgstr ""
+msgstr "Datei erfolgreich gespeichert"
 
 #: ..\files.py:145
 msgid "Edit file-save-name:"
-msgstr ""
+msgstr "Name für neue Datei:"
 
 #: ..\files.py:156 ..\files.py:186
 msgid "Please select target path..."
-msgstr ""
+msgstr "Bitte Verzeichnis wählen..."
 
 #: ..\files.py:168 ..\plugin.py:820
 msgid "file exist on this path, overwrite?"
-msgstr ""
+msgstr "Datei vorhanden, überschreiben?"
 
 #: ..\files.py:177
 msgid "file successfully copied at"
-msgstr ""
+msgstr "Datei erfolgreich kopiert"
 
 #: ..\files.py:192
 msgid "Do you really want to delete this file?"
-msgstr ""
+msgstr "Diese Datei wirklich löschen?"
 
 #: ..\files.py:200
 msgid "file is deleted"
-msgstr ""
+msgstr "Datei ist gelöscht"
 
 #: ..\files.py:214
 msgid "file successfully moved"
-msgstr ""
+msgstr "Datei erfolgreich verschoben"
 
 #: ..\files.py:250
 msgid "Please select the backup path..."
-msgstr ""
+msgstr "Sicherungsverzeichnis wählen..."
 
 #: ..\files.py:258
 msgid "Overwrite existing Backup?"
-msgstr ""
+msgstr "Überschreibe vorhandene Sicherung?"
 
 #: ..\files.py:262 ..\files.py:270
 msgid "Backup failed"
-msgstr ""
+msgstr "Sicherung wurde abgebrochen"
 
 #: ..\files.py:265
 msgid "Directory %s nonexistent."
-msgstr ""
+msgstr "Verzeichnis existiert nicht."
 
 #: ..\files.py:291
 msgid "Backup Settings..."
-msgstr ""
+msgstr "Sicherungseinstellungen..."
 
 #: ..\files.py:298
 msgid "Please select the restore path..."
-msgstr ""
+msgstr "Bitte Sicherungsverzeichnis wählen..."
 
 #: ..\files.py:304
 msgid "Overwrite existing Files?"
-msgstr ""
+msgstr "Überschreibe vorhandene Datei?"
 
 #: ..\files.py:307
 msgid "File %s nonexistent."
-msgstr ""
+msgstr "Datgei %s existiert nicht."
 
 #: ..\files.py:316
 msgid "Restore Settings..."
-msgstr ""
+msgstr "Einstellungen wiederherstellen..."
 
 #: ..\plugin.py:96
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: ..\plugin.py:96
 msgid "Menu & Extensionsmenu"
-msgstr ""
+msgstr "Menü und Erweiterungsmenü"
 
 #: ..\plugin.py:96
 msgid "Menu & Mainmenu"
-msgstr ""
+msgstr "Menü & Hauptmenü"
 
 #: ..\plugin.py:96
 msgid "Menu, Mainmenu & Extensionsmenu"
-msgstr ""
+msgstr "Menü, Hauptmenü & Erweiterungsmenü"
 
 #: ..\plugin.py:99
 msgid "from Plugin-Skin"
-msgstr ""
+msgstr "vom Plugin-Skin"
 
 #: ..\plugin.py:99
 msgid "from System-Skin"
-msgstr ""
+msgstr "vom system-Skin"
 
 #: ..\plugin.py:99
 msgid "transparent"
-msgstr ""
+msgstr "transparent"
 
 #: ..\plugin.py:99
 msgid "white"
-msgstr ""
+msgstr "weiß"
 
 #: ..\plugin.py:99 ..\plugin.py:120 ..\plugin.py:121 ..\plugin.py:141
 msgid "black"
-msgstr ""
+msgstr "schwarz"
 
 #: ..\plugin.py:100
 msgid "gray"
-msgstr ""
+msgstr "grau"
 
 #: ..\plugin.py:100
 msgid "silver"
-msgstr ""
+msgstr "silber"
 
 #: ..\plugin.py:100
 msgid "slategray"
-msgstr ""
+msgstr "schiefergrau"
 
 #: ..\plugin.py:101
 msgid "aquamarine"
-msgstr ""
+msgstr "aquamarine"
 
 #: ..\plugin.py:102
 msgid "gold"
-msgstr ""
+msgstr "gold"
 
 #: ..\plugin.py:102
 msgid "greenyellow"
-msgstr ""
+msgstr "grüngelb"
 
 #: ..\plugin.py:102 ..\plugin.py:120 ..\plugin.py:121 ..\plugin.py:141
 msgid "yellow"
-msgstr ""
+msgstr "gelb"
 
 #: ..\plugin.py:103
 msgid "darkorange"
-msgstr ""
+msgstr "dunkelorange"
 
 #: ..\plugin.py:103
 msgid "darkred"
-msgstr ""
+msgstr "dunkelrot"
 
 #: ..\plugin.py:103
 msgid "indianred"
-msgstr ""
+msgstr "indianrot"
 
 #: ..\plugin.py:103
 msgid "orange"
-msgstr ""
+msgstr "orange"
 
 #: ..\plugin.py:103
 msgid "orangered"
-msgstr ""
+msgstr "orangerot"
 
 #: ..\plugin.py:103
 msgid "tomato"
-msgstr ""
+msgstr "tomatenrot"
 
 #: ..\plugin.py:103 ..\plugin.py:120 ..\plugin.py:121 ..\plugin.py:141
 msgid "red"
-msgstr ""
+msgstr "rot"
 
 #: ..\plugin.py:104
 msgid "darkgreen"
-msgstr ""
+msgstr "dunkelgrün"
 
 #: ..\plugin.py:104
 msgid "lawngreen"
-msgstr ""
+msgstr "rasengrün"
 
 #: ..\plugin.py:104
 msgid "lightgreen"
-msgstr ""
+msgstr "hellgrün"
 
 #: ..\plugin.py:104
 msgid "lime"
-msgstr ""
+msgstr "lindenbraun"
 
 #: ..\plugin.py:104 ..\plugin.py:120 ..\plugin.py:121 ..\plugin.py:141
 msgid "green"
-msgstr ""
+msgstr "grün"
 
 #: ..\plugin.py:105
 msgid "blueviolet"
-msgstr ""
+msgstr "blauviolett"
 
 #: ..\plugin.py:105
 msgid "cadetblue"
-msgstr ""
+msgstr "kadettenblau"
 
 #: ..\plugin.py:105
 msgid "cornflowerblue"
-msgstr ""
+msgstr "kornblumenblau"
 
 #: ..\plugin.py:105
 msgid "darkblue"
-msgstr ""
+msgstr "dunkelblau"
 
 #: ..\plugin.py:105
 msgid "indigo"
-msgstr ""
+msgstr "indigoblau"
 
 #: ..\plugin.py:105
 msgid "lightblue"
-msgstr ""
+msgstr "hellblau"
 
 #: ..\plugin.py:105 ..\plugin.py:120 ..\plugin.py:121 ..\plugin.py:141
 msgid "blue"
-msgstr ""
+msgstr "blau"
 
 #: ..\plugin.py:106
 msgid "cyan"
-msgstr ""
+msgstr "cyan"
 
 #: ..\plugin.py:106
 msgid "darkorchid"
-msgstr ""
+msgstr "dunkelorchidee"
 
 #: ..\plugin.py:106
 msgid "deeppink"
-msgstr ""
+msgstr "tiefpink"
 
 #: ..\plugin.py:106
 msgid "magenta"
-msgstr ""
+msgstr "magenta"
 
 #: ..\plugin.py:106
 msgid "violet"
-msgstr ""
+msgstr "violett"
 
 #: ..\plugin.py:107
 msgid "brown"
-msgstr ""
+msgstr "braun"
 
 #: ..\plugin.py:107
 msgid "moccasin"
-msgstr ""
+msgstr "moccasinbraun"
 
 #: ..\plugin.py:107
 msgid "olive"
-msgstr ""
+msgstr "olivengrün"
 
 #: ..\plugin.py:107
 msgid "rosybrown"
-msgstr ""
+msgstr "rosabraun"
 
 #: ..\plugin.py:107
 msgid "sandybrown"
-msgstr ""
+msgstr "sandbraun"
 
 #: ..\plugin.py:113
 msgid "Off"
-msgstr ""
+msgstr "Aus"
 
 #: ..\plugin.py:113
 msgid "best"
-msgstr ""
+msgstr "beste"
 
 #: ..\plugin.py:113 ..\plugin.py:118
 msgid "speed"
-msgstr ""
+msgstr "Geschwindigkeit"
 
 #: ..\plugin.py:117
 msgid "better"
-msgstr ""
+msgstr "besser"
 
 #: ..\plugin.py:117
 msgid "simple"
-msgstr ""
+msgstr "einfach"
 
 #: ..\plugin.py:118
 msgid "quality"
-msgstr ""
+msgstr "Qualität"
 
 #: ..\plugin.py:122
 msgid "big"
-msgstr ""
+msgstr "groß"
 
 #: ..\plugin.py:122
 msgid "normal"
-msgstr ""
+msgstr "normal"
 
 #: ..\plugin.py:122 ..\plugin.py:141 ..\plugin.py:146
 msgid "from skin"
-msgstr ""
+msgstr "vom Skin"
 
 #: ..\plugin.py:126 ..\plugin.py:1492
 msgid "Next Page"
-msgstr ""
+msgstr "Nächste Seite"
 
 #: ..\plugin.py:126 ..\plugin.py:1493
 msgid "Preview Page"
-msgstr ""
+msgstr "Vorherige Seite"
 
 #: ..\plugin.py:132 ..\plugin.py:133
 msgid "Endless"
-msgstr ""
+msgstr "Endlos"
 
 #: ..\plugin.py:132 ..\plugin.py:133
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: ..\plugin.py:132 ..\plugin.py:133 ..\plugin.py:1911
 msgid "Back to Startscreen"
-msgstr ""
+msgstr "Zurück zur Hauptseite"
 
 #: ..\plugin.py:143
 msgid "Diashow"
-msgstr ""
+msgstr "Diashow"
 
 #: ..\plugin.py:143 ..\plugin.py:227 ..\plugin.py:417 ..\plugin.py:433
 #: ..\plugin.py:456 ..\plugin.py:472 ..\plugin.py:1491
 msgid "Show Pictures"
-msgstr ""
+msgstr "Bilder anzeigen"
 
 #: ..\plugin.py:143 ..\plugin.py:426 ..\plugin.py:449 ..\plugin.py:460
 msgid "Folder- and Filelist"
-msgstr ""
+msgstr "Verzeichnisse und Dateien"
 
 #: ..\plugin.py:146
 msgid "from settings"
-msgstr ""
+msgstr "von hier"
 
 #: ..\plugin.py:148
 msgid "Same resolution as skin"
-msgstr ""
+msgstr "Gleiche Auflösung wie der Skin"
 
 #: ..\plugin.py:155
 msgid "None"
-msgstr ""
+msgstr "Keiner"
 
 #: ..\plugin.py:155 ..\plugin.py:282
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: ..\plugin.py:155 ..\plugin.py:282
 msgid "Name reverse"
-msgstr ""
+msgstr "Name rückwärts"
 
 #: ..\plugin.py:157 ..\plugin.py:284
 msgid "record date forward"
-msgstr ""
+msgstr "Datum aufsteigend"
 
 #: ..\plugin.py:158 ..\plugin.py:285
 msgid "record date descending"
-msgstr ""
+msgstr "Datum absteigend"
 
 #: ..\plugin.py:161
 msgid "Random"
-msgstr ""
+msgstr "Zufall"
 
 #: ..\plugin.py:221
 msgid "Close PictureCenterFS"
-msgstr ""
+msgstr "PictureCenterFS beenden"
 
 #: ..\plugin.py:222
 msgid "Filelist or Filemenu"
-msgstr ""
+msgstr "Verzeichnisse/Datei-Optionen"
 
 #: ..\plugin.py:223 ..\plugin.py:224 ..\plugin.py:225 ..\plugin.py:1488
 #: ..\plugin.py:1489 ..\plugin.py:1490 ..\plugin.py:1915
 msgid "Play Slideshow"
-msgstr ""
+msgstr "Diashow Start"
 
 #: ..\plugin.py:226 ..\plugin.py:421 ..\plugin.py:429 ..\plugin.py:452
 #: ..\plugin.py:468 ..\plugin.py:1499
 msgid "Thumbs"
-msgstr ""
+msgstr "Vorschaubilder"
 
 #: ..\plugin.py:229
 msgid "Show Menu"
-msgstr ""
+msgstr "Menü anzeigen"
 
 #: ..\plugin.py:230 ..\plugin.py:1487 ..\plugin.py:1925
 msgid "Show Exif-Data"
-msgstr ""
+msgstr "Bild-Infos anzeigen"
 
 #: ..\plugin.py:231 ..\plugin.py:435
 msgid "Make Bookmark"
-msgstr ""
+msgstr "Lesezeichen setzen"
 
 #: ..\plugin.py:232 ..\plugin.py:233
 msgid "other sort"
-msgstr ""
+msgstr "andere Sortierung"
 
 #: ..\plugin.py:265
 msgid "sorted by"
-msgstr ""
+msgstr "Sortierung"
 
 #: ..\plugin.py:279
 msgid ""
@@ -439,43 +437,46 @@ msgid ""
 "Please install current version of python-imaging from feed\n"
 "or install PIL > 1.1.5"
 msgstr ""
+"Modul PIL ist nicht installiert!\n"
+"Bitte installieren Sie die aktuelle Version des Pythonpakets vom Feed\n"
+"oder installieren Sie PIL > 1.15"
 
 #: ..\plugin.py:286
 msgid "PictureCenterFS - Sort"
-msgstr ""
+msgstr "PictureCenterFS - Sortieren"
 
 #: ..\plugin.py:347 ..\plugin.py:400
 msgid "select DIR"
-msgstr ""
+msgstr "Verzeichnis wählen"
 
 #: ..\plugin.py:353 ..\plugin.py:400 ..\plugin.py:633 ..\plugin.py:1160
 msgid "Default dir"
-msgstr ""
+msgstr "Standard-Verzeichnis"
 
 #: ..\plugin.py:356
 msgid "Marked pictures"
-msgstr ""
+msgstr "Markierte Bilder"
 
 #: ..\plugin.py:415
 msgid "Show"
-msgstr ""
+msgstr "Bild anzeigen"
 
 #: ..\plugin.py:416
 msgid "FileMenu"
-msgstr ""
+msgstr "Menü Datei-Aktionen"
 
 #: ..\plugin.py:419 ..\plugin.py:431 ..\plugin.py:454 ..\plugin.py:470
 #: ..\plugin.py:1913
 msgid "Slideshow"
-msgstr ""
+msgstr "Diashow Start/Stop"
 
 #: ..\plugin.py:439 ..\plugin.py:441 ..\plugin.py:745 ..\plugin.py:1481
 msgid "back to Bookmarks"
-msgstr ""
+msgstr "zurück zu den Lesezeichen"
 
 #: ..\plugin.py:443 ..\plugin.py:445 ..\plugin.py:748
 msgid "Parent Directory"
-msgstr ""
+msgstr "Übergeordnetes Verzeichnis"
 
 #: ..\plugin.py:605
 msgid ""
@@ -483,577 +484,626 @@ msgid ""
 "\n"
 "If the device is ready to please run via menu 'refresh mounts'."
 msgstr ""
+"Wenn ein verbundenes Laufwerk nicht bereit ist, bitte anschließen/"
+"einschalten.\n"
+"\n"
+"Wenn das Gerät bereit ist, bitte im Menü 'refresh mounts' starten."
 
 #: ..\plugin.py:620
 msgid "No Picture found on in this Dir"
-msgstr ""
+msgstr "Keine Bilder im Verzeichnis gefunden"
 
 #: ..\plugin.py:623
 msgid "Please select path..."
-msgstr ""
+msgstr "Bitte Vezeichnis wählen..."
 
 #: ..\plugin.py:630
 msgid "file-actions"
-msgstr ""
+msgstr "Datei-Aktionen"
 
 #: ..\plugin.py:632
 msgid "Make Bookmark of selected dir"
-msgstr ""
+msgstr "Lesezeichen von gewähltem Verzeichnis erstellen"
 
 #: ..\plugin.py:635
 msgid "Edit / Delete Bookmark"
-msgstr ""
+msgstr "Lesezeichen bearbeiten / löschen"
 
 #: ..\plugin.py:636 ..\plugin.py:1118
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: ..\plugin.py:637 ..\plugin.py:963
 msgid "New Bookmark"
-msgstr ""
+msgstr "Neues Lesezeichen"
 
 #: ..\plugin.py:639 ..\plugin.py:653
 msgid "Options for picture lists"
-msgstr ""
+msgstr "Optionen Bilder-Listen"
 
 #: ..\plugin.py:640
 msgid "Refresh mounts"
-msgstr ""
+msgstr "Refresh mounts"
 
 #: ..\plugin.py:641
 msgid "Backup ConfFS-Dir"
-msgstr ""
+msgstr "Settings-Verzeichnis ConfFS sichern"
 
 #: ..\plugin.py:642
 msgid "Restore ConfFS-Dir"
-msgstr ""
+msgstr "Settings-Verzeichnis ConfFS wiederherstellen"
 
 #: ..\plugin.py:643
 msgid "About"
-msgstr ""
+msgstr "Über"
 
 #: ..\plugin.py:644
 msgid "PictureCenterFS - Menu"
-msgstr ""
+msgstr "PictureCenterFS - Menü"
 
 #: ..\plugin.py:649
 msgid "Empty temporary marked list"
-msgstr ""
+msgstr "Temporäre Marker-Liste leeren"
 
 #: ..\plugin.py:650
 msgid "Save temporary marked list"
-msgstr ""
+msgstr "Temporäre Marker-Liste sichern"
 
 #: ..\plugin.py:652
 msgid "Delete saved list"
-msgstr ""
+msgstr "Gespeicherte Datei-Liste löschen"
 
 #: ..\plugin.py:653 ..\plugin.py:833
 msgid "PictureCenterFS - "
-msgstr ""
+msgstr "PictureCenterFS - "
 
 #: ..\plugin.py:718
 msgid "no valid directory"
-msgstr ""
+msgstr "kein gültiges Verzeichnis"
 
 #: ..\plugin.py:805
 msgid "pictures in"
-msgstr ""
+msgstr "Bilder in"
 
 #: ..\plugin.py:812
 msgid "Enter File-Name:"
-msgstr ""
+msgstr "Eingabe Name für Datei:"
 
 #: ..\plugin.py:833
 msgid "Delete picture list file"
-msgstr ""
+msgstr "File-Liste zum löschen wählen"
 
 #: ..\plugin.py:838
 msgid "File"
-msgstr ""
+msgstr "Datei"
 
 #: ..\plugin.py:838
 msgid "really delete?"
-msgstr ""
+msgstr "wirklich löschen?"
 
 #: ..\plugin.py:966
 msgid "Edit Bookmark"
-msgstr ""
+msgstr "Lesezeichen bearbeiten"
 
 #: ..\plugin.py:985 ..\plugin.py:999
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: ..\plugin.py:987 ..\plugin.py:997 ..\plugin.py:1123 ..\plugin.py:1136
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: ..\plugin.py:998
 msgid "edit selected"
-msgstr ""
+msgstr "Ändere Ausgewählte"
 
 #: ..\plugin.py:1000 ..\plugin.py:1344
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: ..\plugin.py:1004
 msgid " >> select and press OK for edit >>"
-msgstr ""
+msgstr " >> auswählen und 'OK' drücken zum ändern >>"
 
 #: ..\plugin.py:1007
 msgid "Bookmark-Name:"
-msgstr ""
+msgstr "Lesezeichen Name:"
 
 #: ..\plugin.py:1008
 msgid "Picture-Path:"
-msgstr ""
+msgstr "Lesezeichen Verzeichnis:"
 
 #: ..\plugin.py:1009 ..\plugin.py:1161
 msgid "Read sub-dir's"
-msgstr ""
+msgstr "Unterverzeichnisse einschließen"
 
 #: ..\plugin.py:1010 ..\plugin.py:1156 ..\plugin.py:1184
 msgid "Picture Sorting:"
-msgstr ""
+msgstr "Bilder-Sortierung:"
 
 #: ..\plugin.py:1011 ..\plugin.py:1196
 msgid "Show Infoline"
-msgstr ""
+msgstr "Info-Zeile anzeigen"
 
 #: ..\plugin.py:1012
 msgid "Ignore video:"
-msgstr ""
+msgstr "Überspringe Videos:"
 
 #: ..\plugin.py:1024
 msgid "Enter Bookmark-Name:"
-msgstr ""
+msgstr "Eingabe Name für Lesezeichen:"
 
 #: ..\plugin.py:1033
 msgid "Please select the Bookmark path..."
-msgstr ""
+msgstr "Lesezeichen- Vezeichnis wählen..."
 
 #: ..\plugin.py:1041
 msgid "Delete Bookmark really?"
-msgstr ""
+msgstr "Lesezeichen wirklich löschen?"
 
 #: ..\plugin.py:1054
 msgid "Path failed"
-msgstr ""
+msgstr "Pfad funktioniert nicht"
 
 #: ..\plugin.py:1056
 msgid "No Picture in this dir"
-msgstr ""
+msgstr "Keine Bilder im Verzeichnis gefunden"
 
 #: ..\plugin.py:1061
 msgid "No Name!"
-msgstr ""
+msgstr "Kein Name!"
 
 #: ..\plugin.py:1119
 msgid "Screensaver"
-msgstr ""
+msgstr "Bildschirmschoner"
 
 #: ..\plugin.py:1119 ..\plugin.py:1122 ..\plugin.py:1225 ..\plugin.py:1252
 msgid "Default for full screen and diashow"
-msgstr ""
+msgstr "Standard für Vollbild und Diashow"
 
 #: ..\plugin.py:1119 ..\plugin.py:1122 ..\plugin.py:1225 ..\plugin.py:1252
 msgid "Infoline"
-msgstr ""
+msgstr "Info-Zeile"
 
 #: ..\plugin.py:1119 ..\plugin.py:1122 ..\plugin.py:1225 ..\plugin.py:1252
 msgid "Thumbnails"
-msgstr ""
+msgstr "Vorschaubilder"
 
 #: ..\plugin.py:1119 ..\plugin.py:1122 ..\plugin.py:1225 ..\plugin.py:1252
 msgid "main"
-msgstr ""
+msgstr "Grundeinstellungen"
 
 #: ..\plugin.py:1121 ..\plugin.py:1137
 msgid "Cancel"
-msgstr ""
+msgstr "Abbruch"
 
 #: ..\plugin.py:1122 ..\plugin.py:1225 ..\plugin.py:1227 ..\plugin.py:1233
 msgid "Select with left / right"
-msgstr ""
+msgstr "Mit links/rechts auswählen"
 
 #: ..\plugin.py:1122 ..\plugin.py:1225 ..\plugin.py:1229
 msgid "Press OK"
-msgstr ""
+msgstr "OK drücken"
 
 #: ..\plugin.py:1138
 msgid "edit if possible"
-msgstr ""
+msgstr "bearbeiten wenn möglich"
 
 #: ..\plugin.py:1139
 msgid "Cancel and close"
-msgstr ""
+msgstr "Abbrechen und schließen"
 
 #: ..\plugin.py:1149
 msgid "Select Options area"
-msgstr ""
+msgstr "Wähle Options-Bereich"
 
 #: ..\plugin.py:1150
 msgid "Show options for:"
-msgstr ""
+msgstr "Zeige Optionen für:"
 
 #: ..\plugin.py:1152
 msgid "(more settings in Bookmarks)"
-msgstr ""
+msgstr "(mehr in Lesezeichen)"
 
 #: ..\plugin.py:1155
 msgid "Show in mainmenu"
-msgstr ""
+msgstr "Menü-Eintrag"
 
 #: ..\plugin.py:1157
 msgid "Exclude if in name:"
-msgstr ""
+msgstr "Ausschließen im Namen:"
 
 #: ..\plugin.py:1158
 msgid "Ch+ Button-Aktion"
-msgstr ""
+msgstr "CH+ Tasten-Aktion"
 
 #: ..\plugin.py:1159
 msgid "default action for 'OK'"
-msgstr ""
+msgstr "Standard-Aktion für OK"
 
 #: ..\plugin.py:1162
 msgid "Background"
-msgstr ""
+msgstr "Hintergrund"
 
 #: ..\plugin.py:1163
 msgid "Turn off GUI transparency"
-msgstr ""
+msgstr "GUI Transparenz abschalten"
 
 #: ..\plugin.py:1164
 msgid "Picture-list functions"
-msgstr ""
+msgstr "Dateilisten-Funktionen"
 
 #: ..\plugin.py:1165
 msgid "Activate Screensaver-Plugin"
-msgstr ""
+msgstr "Screensaver-Plugin an/aus"
 
 #: ..\plugin.py:1169
 msgid "Path for pictures"
-msgstr ""
+msgstr "Verzeichnis der Bilder"
 
 #: ..\plugin.py:1170
 msgid "Order"
-msgstr ""
+msgstr "Sortierung"
 
 #: ..\plugin.py:1171
 msgid "Show from subdirs"
-msgstr ""
+msgstr "Unterverzeichnisse"
 
 #: ..\plugin.py:1176
 msgid "Show symbol for play and random"
-msgstr ""
+msgstr "Symbole für Play und Zufall anzeigen"
 
 #: ..\plugin.py:1178
 msgid "Symbols auto hide (sek)"
-msgstr ""
+msgstr "Symbole ausblenden (sek)"
 
 #: ..\plugin.py:1179
 msgid "Show Picture Name in Display:"
-msgstr ""
+msgstr "Zeige Bild-Name im Display:"
 
 #: ..\plugin.py:1180
 msgid "Sizes and positions"
-msgstr ""
+msgstr "Größen und Positionen"
 
 #: ..\plugin.py:1182
 msgid "Image distance to the edge"
-msgstr ""
+msgstr "Bild-Abstand zum Rand"
 
 #: ..\plugin.py:1183
 msgid "Resloution"
-msgstr ""
+msgstr "Auflösung"
 
 #: ..\plugin.py:1186
 msgid "What do at the end (not random)"
-msgstr ""
+msgstr "Was tun am Ende (nicht Zufall)"
 
 #: ..\plugin.py:1187
 msgid "What do at the end (random play)"
-msgstr ""
+msgstr "Was tun am Ende (bei Zufallswiedergabe)"
 
 #: ..\plugin.py:1188
 msgid "Slideshow Interval (sec.)"
-msgstr ""
+msgstr "Diashow-Bildwechsel (Sekunden)"
 
 #: ..\plugin.py:1189
 msgid "Slide-effekt"
-msgstr ""
+msgstr "Effekt bei Bildwechsel"
 
 #: ..\plugin.py:1190
 msgid "Break load (sec.)"
-msgstr ""
+msgstr "Laden abbrechen nach (Sek.)"
 
 #: ..\plugin.py:1192
 msgid "Auto-Rotate"
-msgstr ""
+msgstr "Automatisch drehen"
 
 #: ..\plugin.py:1193
 msgid "Start sizing zoom"
-msgstr ""
+msgstr "Startgröße Zoom"
 
 #: ..\plugin.py:1197
 msgid "Info Color"
-msgstr ""
+msgstr "Info-Text Farbe"
 
 #: ..\plugin.py:1199
 msgid "Infoline distance left, top"
-msgstr ""
+msgstr "Abstand der Info-Zeile links, oben"
 
 #: ..\plugin.py:1200
 msgid "Infoline Backgroundcolor"
-msgstr ""
+msgstr "Infozeile Hintergrundfarbe"
 
 #: ..\plugin.py:1201
 msgid "Size for Info"
-msgstr ""
+msgstr "Größe der Infos"
 
 #: ..\plugin.py:1204
 msgid "Thumbnail in filelist"
-msgstr ""
+msgstr "Vorschaubild in Dateiliste"
 
 #: ..\plugin.py:1205
 msgid "Thumbnail delaying ms"
-msgstr ""
+msgstr "Vorschaubild Verzögerung in ms"
 
 #: ..\plugin.py:1206
 msgid "Cache Thumbnails"
-msgstr ""
+msgstr "Cache Thumbnails"
 
 #: ..\plugin.py:1207
 msgid "Thumb size"
-msgstr ""
+msgstr "Vorschaubilder Größe"
 
 #: ..\plugin.py:1208
 msgid "No. of pages jump"
-msgstr ""
+msgstr "Anzahl Seiten bei Sprung"
 
 #: ..\plugin.py:1209
 msgid "Text size"
-msgstr ""
+msgstr "Text Größe"
 
 #: ..\plugin.py:1210
 msgid "Text color"
-msgstr ""
+msgstr "Text-Farbe"
 
 #: ..\plugin.py:1211
 msgid "Back color"
-msgstr ""
+msgstr "Hintergrundfarbe"
 
 #: ..\plugin.py:1212
 msgid "Scaling Mode"
-msgstr ""
+msgstr "Skalierungs-Methode"
 
 #: ..\plugin.py:1227
 msgid "color or transparent"
-msgstr ""
+msgstr "Farbe oder Tranpsarent"
 
 #: ..\plugin.py:1231
 msgid ""
-"Files and dirs with the partial term in the name are not list and displayed\n"
+"Files and dirs with the partial term in the name are not list and "
+"displayed\n"
 " separate several with comma (OK to edit)"
 msgstr ""
+"Dateien und Ordner mit Teil-Bezeichnung im Namen nicht anzeigen\n"
+"mehrere Bezeichnungen mit Komma trennen, OK zum editieren"
 
 #: ..\plugin.py:1233
 msgid "or change the entry"
-msgstr ""
+msgstr "oder Eintrag ändern"
 
 #: ..\plugin.py:1238
 msgid "Really close without saving settings?"
-msgstr ""
+msgstr "Wirklich beenden ohne zu speichern?"
 
 #: ..\plugin.py:1248
 msgid "Please select the default dir..."
-msgstr ""
+msgstr "Bitte Standardverzeichnis wählen..."
 
 #: ..\plugin.py:1250
 msgid "Please select dir..."
-msgstr ""
+msgstr "Bitte Verzeichnis wählen..."
 
 #: ..\plugin.py:1257
 msgid "Do not show when in Name (separate with comma):"
-msgstr ""
+msgstr "Nicht anzeigen wenn im Namen (trenne mit Komma):"
 
 #: ..\plugin.py:1346
 msgid "scroll with right / left"
-msgstr ""
+msgstr "scrolle mit Rechts/Links"
 
 #: ..\plugin.py:1355
 msgid "filename"
-msgstr ""
+msgstr "Dateiname"
 
 #: ..\plugin.py:1357
 msgid "Name: "
-msgstr ""
+msgstr "Name: "
 
 #: ..\plugin.py:1358
 msgid "Path: "
-msgstr ""
+msgstr "Pfad: "
 
 #: ..\plugin.py:1396
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ..\plugin.py:1475 ..\plugin.py:1902
 msgid "not activated"
-msgstr ""
+msgstr "nicht aktiviert"
 
 #: ..\plugin.py:1477 ..\plugin.py:1904
 msgid "Add to marked list"
-msgstr ""
+msgstr "Hinzufügen zu Marker-Liste"
 
 #: ..\plugin.py:1482
 msgid "Open selected picture"
-msgstr ""
+msgstr "Gewähltes Bild anzeigen"
 
 #: ..\plugin.py:1483
 msgid "left"
-msgstr ""
+msgstr "nach links"
 
 #: ..\plugin.py:1484
 msgid "right"
-msgstr ""
+msgstr "nach rechts"
 
 #: ..\plugin.py:1485
 msgid "Up"
-msgstr ""
+msgstr "Hoch"
 
 #: ..\plugin.py:1486
 msgid "Down"
-msgstr ""
+msgstr "Runter"
 
 #: ..\plugin.py:1494
 msgid "First Page"
-msgstr ""
+msgstr "Erste Seite"
 
 #: ..\plugin.py:1495
 msgid "Last Page"
-msgstr ""
+msgstr "Letzte Seite"
 
 #: ..\plugin.py:1496
 msgid " Pages back"
-msgstr ""
+msgstr " Seiten zurück"
 
 #: ..\plugin.py:1497
 msgid " Pages for"
-msgstr ""
+msgstr " Seiten vor"
 
 #: ..\plugin.py:1914
 msgid "toggle Slideshow random/sorted"
-msgstr ""
+msgstr "Diashow Zufall/sortiert wechseln"
 
 #: ..\plugin.py:1916 ..\plugin.py:1917
 msgid "Pause / Resume Slideshow"
-msgstr ""
+msgstr "Diashow -Pause/fortsetzen"
 
 #: ..\plugin.py:1918
 msgid "Stop Slideshow"
-msgstr ""
+msgstr "Diashow Stop"
 
 #: ..\plugin.py:1919
 msgid "Show/Hide Text"
-msgstr ""
+msgstr "Infotext zeigen/ausblenden"
 
 #: ..\plugin.py:1920
 msgid "Prev. Picture or zoom range left"
-msgstr ""
+msgstr "Nächstes Bild oder Zoombereich links"
 
 #: ..\plugin.py:1921
 msgid "Next Picture or zoom range right"
-msgstr ""
+msgstr "Nächstes Bild oder Zoombereich rechts"
 
 #: ..\plugin.py:1922
 msgid "Zoom range Up"
-msgstr ""
+msgstr "Zoom-Bereich nach oben"
 
 #: ..\plugin.py:1923
 msgid "Zoom range Down"
-msgstr ""
+msgstr "Zoom Bereich nach unten"
 
 #: ..\plugin.py:1924
 msgid "Options for select Picture"
-msgstr ""
+msgstr "Optionen für gewähltes Bild"
 
 #: ..\plugin.py:1926
 msgid "Slide-time faster"
-msgstr ""
+msgstr "Bildwechsel schneller"
 
 #: ..\plugin.py:1927
 msgid "Slide-time slower"
-msgstr ""
+msgstr "Bildwechsel langsamer"
 
 #: ..\plugin.py:1928
 msgid "reduced zoom range"
-msgstr ""
+msgstr "Zoom-Bereich verkleinern"
 
 #: ..\plugin.py:1929
 msgid "increased zoom range"
-msgstr ""
+msgstr "Zoom-Bereich vergrößern"
 
 #: ..\plugin.py:1930
 msgid "Rotate 90->"
-msgstr ""
+msgstr "90° im Uhrzeigersinn drehen"
 
 #: ..\plugin.py:1931
 msgid "Rotate <-90"
-msgstr ""
+msgstr "90° gegen Uhrzeigersinn drehen"
 
 #: ..\plugin.py:1932
 msgid "Flip image horizontally"
-msgstr ""
+msgstr "Horizontal spiegeln"
 
 #: ..\plugin.py:1933
 msgid "Flip image vertically"
-msgstr ""
+msgstr "Vertikal spiegeln"
 
 #: ..\plugin.py:1934
 msgid "Image manipulation undo"
-msgstr ""
+msgstr "Änderungen rückgängig machen"
 
 #: ..\plugin.py:1935
 msgid "Start Zoom"
-msgstr ""
+msgstr "Ausschnitt vergrößern"
 
 #: ..\plugin.py:1936
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: ..\plugin.py:2133
 msgid "please wait, loading picture..."
-msgstr ""
+msgstr "lade Bild, bitte warten...."
 
 #: ..\plugin.py:2165
 msgid "PIL is not installed"
-msgstr ""
+msgstr "PIL ist nicht installiert"
 
 #: ..\plugin.py:2437
 msgid "auto rotated"
-msgstr ""
+msgstr "autom. gedreht"
 
 #: ..\plugin.py:2440
 msgid "changed"
-msgstr ""
+msgstr "verändert"
 
 #: ..\plugin.py:2830
 msgid "Slide Time has been changed to"
-msgstr ""
+msgstr "Bildwechsel wurde auf"
 
 #: ..\plugin.py:2830
 msgid "seconds"
-msgstr ""
+msgstr "Sekunden geändert"
 
 #: ..\plugin.py:3441
 msgid "see your picture comfortable and more"
-msgstr ""
+msgstr "eigene Bilder komfortabel ansehen und mehr"
 
 #: ..\plugin.py:3446
 msgid "yor picture as screensaver"
-msgstr ""
+msgstr "ihr Bild als Bildschirmschoner"
 
 #: ..\plugin.py:3450 ..\plugin.py:3452
 msgid "see yor picture comfortable and more"
-msgstr ""
+msgstr "Bilder komfortabel ansehen und mehr"
+
+#~ msgid "kein gueltiges Verzeichnis"
+#~ msgstr "kein gültiges Verzeichnis"
+
+#~ msgid "Bookmark exist, overwrite?"
+#~ msgstr "Lesezeichen wirklich überschreiben?"
+
+#~ msgid "Directory protect"
+#~ msgstr "Verzeichnis schützen"
+
+#~ msgid "Directory protect:"
+#~ msgstr "Verzeichnis schützen"
+
+#~ msgid "Filelist"
+#~ msgstr "Dateiliste"
+
+#~ msgid "Open Dir"
+#~ msgstr "Verzeichniss öffnen"
+
+#~ msgid "Open Picture or Dir's"
+#~ msgstr "Zeige Bild oder Verzeichnisliste"
+
+#~ msgid "Password for dirs and file actions"
+#~ msgstr "Passwort für Verzeichnisse und Dateimenü"
+
+#~ msgid "Password for file actions enable"
+#~ msgstr "Passwort für Dateiaktionen ein/aus"
+
+#~ msgid "Pictures"
+#~ msgstr "Bilder"
+
+#~ msgid "Please enter password"
+#~ msgstr "Bitte Passwort eingeben:"
+
+#~ msgid "Show in"
+#~ msgstr "Anzeigen in"
+
+#~ msgid "changed from"
+#~ msgstr "geändert von "
+
+#~ msgid "main menu"
+#~ msgstr "Hauptmenü"
