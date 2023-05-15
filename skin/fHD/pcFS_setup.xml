@@ -8,7 +8,7 @@ PictureCenterFS7_Setup
 	<eLabel position="1365,30"  size="4,875" backgroundColor="#5d5a3a"/>
 	<eLabel position="40,930"  size="1795,4" backgroundColor="#5d5a3a"/>
 	<widget name="balken" position="0,950" zPosition="1" size="1860,47" font="Regular;32" halign="center" foregroundColor="#5d5a3a" backgroundColor="#000000" transparent="1" />
-	<widget name="config" position="50,40" size="1300,880" zPosition="1" transparent="0" backgroundColor="#000000" scrollbarMode="showOnDemand" />
+	<widget name="config" position="50,40" size="1300,880" font="Regular;30" itemHeight="36" zPosition="1" transparent="0" backgroundColor="#000000" scrollbarMode="showOnDemand" />
 	<widget name="pic_red" pixmap="skin_default/buttons/key_red.png" position="1400,740" size="40,25" backgroundColor="#000000" alphatest="blend" />
 	<widget name="pic_green" pixmap="skin_default/buttons/key_green.png" position="1400,785" size="40,25" backgroundColor="#000000" alphatest="blend" />
 	<widget name="pic_yellow" pixmap="skin_default/buttons/key_yellow.png" position="1400,830" size="40,25" backgroundColor="#000000" alphatest="blend" />

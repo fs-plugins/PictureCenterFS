@@ -8,7 +8,7 @@ PictureCenterFS7_Setup
 	<eLabel position="20,580"  size="1150,3" backgroundColor="#5d5a3a"/>
 	<widget source="Title" render="Label" position="885,40" size="275,150" font="Regular;24" zPosition="2" halign="center" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
 	<widget name="balken" position="0,585" zPosition="1" size="1220,70" font="Regular;20" halign="center" valign="top" foregroundColor="#5d5a3a" backgroundColor="#000000" transparent="1" />
-	<widget name="config" position="20,30" size="820,550" zPosition="0" scrollbarMode="showOnDemand" scrollbarWidth="6" backgroundColor="#000e0e09" foregroundColorSelected="#040600" backgroundColorSelected="#8B8682" transparent="0" />
+	<widget name="config" position="20,30" size="820,550" zPosition="0" font="Regular;20" itemHeight="24" scrollbarMode="showOnDemand" scrollbarWidth="6" backgroundColor="#000e0e09" foregroundColorSelected="#040600" backgroundColorSelected="#8B8682" transparent="0" />
 	<widget name="pic_red" pixmap="skin_default/buttons/key_red.png" position="885,455" size="40,25" backgroundColor="#000000" alphatest="blend" />
 	<widget name="pic_green" pixmap="skin_default/buttons/key_green.png" position="885,485" size="40,25" backgroundColor="#000000" alphatest="blend" />
 	<widget name="pic_yellow" pixmap="skin_default/buttons/key_yellow.png" position="885,515" size="40,25" backgroundColor="#000000" alphatest="blend" />
