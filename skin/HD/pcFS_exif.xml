@@ -1,0 +1,22 @@
+  <screen name="Show_Exif" position="center,center" size="1220,660" title="PictureCenterFS" flags="wfNoBorder" >
+    <ePixmap position="30,30" zPosition="-10" size="1220,660" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/HD/pictures/bg.png" transparent="0" alphatest="on"/> 
+	<widget source="Title" render="Label" position="885,50" size="275,150" zPosition="2" font="Regular;24" halign="center" foregroundColor="#FFFFFF" backgroundColor="#5d5a3a" transparent="1" />
+    <eLabel position="875,50"  size="3,550" backgroundColor="#5d5a3a"/>
+    <eLabel position="60,610"  size="1165,3" backgroundColor="#5d5a3a"/>
+	<ePixmap pixmap="skin_default/buttons/key_red.png" position="60,625" size="40,25" alphatest="on" />
+	<widget source="key_red" render="Label" position="100,625" zPosition="1" size="140,30" font="Regular;20" halign="left" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+	<widget name="scrolltext" position="30,625" zPosition="1" size="1220,40" font="Regular;28" halign="center" foregroundColor="#5d5a3a" backgroundColor="#000000" transparent="1" />
+    <widget source="menu" render="Listbox" position="20,50" size="850,540" zPosition="2" scrollbarMode="showOnDemand" selectionDisabled="1" scrollbarWidth="6" backgroundColor="#000e0e09" transparent="1" >
+		<convert type="TemplatedMultiContent">
+		{
+			"template": [  MultiContentEntryText(pos = (50, 5), size = (210, 30), flags = RT_HALIGN_LEFT, color= 0xffb340, text = 0), MultiContentEntryText(pos = (280, 5), size = (580, 30), flags = RT_HALIGN_LEFT, text = 1)],
+			"fonts": [gFont("Regular", 18)],
+			"itemHeight": 30
+		}
+		</convert>
+	</widget>
+    <widget name="thumb" position="905,100" zPosition="2" size="280,280" alphatest="blend" />
+     
+	<widget source="comment" render="Label" position="885,400" zPosition="1" size="325,240" font="Regular;20" halign="left" foregroundColor="#FFFFFF" backgroundColor="#000000" transparent="1" />
+
+  </screen>

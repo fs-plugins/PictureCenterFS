@@ -1,0 +1,23 @@
+  <screen name ="PictureCenterFS7_Filemenu" position="center,center" size="1280,720" title="PictureCenterFS" flags="wfNoBorder" >
+    <ePixmap position="190,120" zPosition="-10" size="900,520" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/HD/pictures/bg.png" transparent="0" alphatest="on"/> 
+    <eLabel position="705,145"  size="3,430" backgroundColor="#5d5a3a"/>
+    <eLabel position="200,595"  size="870,3" backgroundColor="#5d5a3a"/>
+                <widget source="m_liste" render="Listbox" position="210,160" size="480,330" scrollbarMode="showOnDemand" backgroundColor="#000000" >
+			<convert type="TemplatedMultiContent">
+			{"templates": 
+                            {"default": (40, [
+					MultiContentEntryText(pos = (10, 5), size = (710, 40), font=0, flags = RT_HALIGN_LEFT, text = 0)
+				],True), 
+                                "with_numpic": (40,[
+                                        MultiContentEntryPixmapAlphaTest(pos = (3, 5), size = (30, 30), png = 2), # index 5: stream-logo
+					MultiContentEntryText(pos = (35, 2), size = (680, 40), font=0, flags = RT_HALIGN_LEFT, text = 0)
+				],True)
+                                }, 
+                                "fonts": [gFont("Regular", 22)],"itemHeight": 40
+				}
+			</convert>
+		</widget>
+
+    <widget name="thumb" position="730,180" zPosition="2" size="300,300" alphatest="blend" />
+    <ePixmap position="210,605" zPosition="-10" size="40,30" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_ok.png" transparent="1" alphatest="on"/>
+  </screen>

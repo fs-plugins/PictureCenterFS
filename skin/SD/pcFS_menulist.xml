@@ -1,0 +1,11 @@
+<screen name ="PictureCenterFS7_Filemenu" position="center,70" size="560,400" title="PictureCenterFS" >
+                <widget source="m_liste" render="Listbox" position="0,50" size="950,605" scrollbarMode="showOnDemand" backgroundColor="#000000" >
+			<convert type="TemplatedMultiContent">
+				{"template": [ MultiContentEntryText(pos = (10, 2), size = (540, 375), flags = RT_HALIGN_LEFT, text = 0) ],
+				"fonts": [gFont("Regular", 20)],
+				"itemHeight": 30
+				}
+			</convert>
+		</widget>
+
+</screen>
