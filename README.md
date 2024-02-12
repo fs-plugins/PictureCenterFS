@@ -1,4 +1,4 @@
-universal für python-2 und python-3
+<b>universal für python-2 und python-3</b></br>
 (Hinweis für OpenATV weiter unten beachten!)
 
 ![pcfs_4](https://github.com/fs-plugins/PictureCenterFS/assets/24637469/633020b2-4e3c-477b-8ec3-dd50ca99af6e)
