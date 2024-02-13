@@ -13,7 +13,7 @@ Funktionen:
 * angepasste Menü’s je nach verfügbaren Möglichkeiten
 * HELP-Taste zeigt verfügbare Funktionen
 * Zoom, Bilder drehen, spiegeln
-* Merk- und Playlisten (erklärt wird es hier)
+* Merk- und Playlisten
 * zusätzliches Modul screensaver, welches als eigenes Plugin verwendet werden kann (z.B. mit MQB auf eine Taste legen)
 
 ![pcfs_4](https://github.com/fs-plugins/PictureCenterFS/assets/24637469/633020b2-4e3c-477b-8ec3-dd50ca99af6e)
