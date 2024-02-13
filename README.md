@@ -11,9 +11,9 @@ Funktionen:
 * bequemes kopieren, verschieben und löschen von Bildern
 * viele einstellbare Optionen wie z.B. die Sortierung
 * angepasste Menü’s je nach verfügbaren Möglichkeiten
-* HELP-Taste zeigt verfügbare Funktionen
+* HELP-Taste zeigt verfügbare Funktionen (wenn sie im System als Help-Taste funktioniert)
 * Zoom, Bilder drehen, spiegeln
-* Merk- und Playlisten
+* Merk- und Playlisten ![Erklärung hier](https://github.com/fs-plugins/PictureCenterFS/wiki#datei-listen-funktion)
 * zusätzliches Modul screensaver, welches als eigenes Plugin verwendet werden kann (z.B. mit MQB auf eine Taste legen)
 
 ![pcfs_4](https://github.com/fs-plugins/PictureCenterFS/assets/24637469/633020b2-4e3c-477b-8ec3-dd50ca99af6e)
