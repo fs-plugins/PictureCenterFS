@@ -45,31 +45,62 @@ class PictureCenterFS7_Filemenu(Screen):
 	skin = tmpskin.read()
 	tmpskin.close()
 
-	def __init__(self, session, file1,file2=""):
+	def __init__(self, session, file1,file2="",akti=None):
 		self.file1=file1
 		self.file2=file2
 		self.edit=0
+		self.akti=akti
 		Screen.__init__(self, session)
 		self.skinName = "PictureCenterFS7_Filemenu"
 		self.session = session
 		self.settigspath = ""
 		mlist = []
 		template="default"
-		pics = ["nix", None, None, None]
-		nums=["","1 ","2 ","3 "]
-		if skin_zusatz !="SD/" and os.path.exists(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/buttons/key_" + str(len(pics)) + ".png")):
+		pics = ["nix", "red","green","yellow","blue","rec","epg","bouquet","exit","info","down","up","left","right","9","7","4","2","5","ok","stop","back","for"]
+		pics[0] = LoadPixmap(plugin_path+"/skin/pictures/nix.png")
+		if skin_zusatz !="SD/":
 			template="with_numpic"
 			for i in range(1,len(pics)):
-				pics[i] = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/buttons/key_" + str(i) + ".png"))
-				nums[i] =""
+				if os_path.exists(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/buttons/key_" + pics[i] + ".png")):
+					pics[i] = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/buttons/key_" + pics[i] + ".png"))
+				elif os_path.exists(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/buttons/" + pics[i] + ".png")):
+					pics[i] = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/buttons/" + pics[i] + ".png"))
+				else:
+					pics[i] = pics[0]
 
-		mlist.append((nums[1]+_('Copy selected/displayed file'), 'copy',pics[1]))
+		mlist.append((_('Copy selected/displayed file'), 'copy',pics[0]))
 		if len(self.file2)>0:
-			mlist.append((nums[2]+_('save changes in the original image'), 'save_rotat',pics[2]))
+			mlist.append((_('save changes in the original image'), 'save_rotat',pics[0]))
 			self.setTitle(plugin+": "+_("Options for edited image"))
 		else:
-			mlist.append((nums[2]+_('Move selected/displayed file'), 'move',pics[2]))
-			mlist.append((nums[3]+_('Delete selected/displayed file'), 'delete',pics[3]))
+			mlist.append((_('Move selected/displayed file'), 'move',pics[0]))
+			mlist.append((_('Delete selected/displayed file'), 'delete',pics[0]))
+		if akti:
+			mlist.append((" ", "",pics[0]))
+			mlist.append((" "+_("Back to Startscreen"), 'cancel',pics[8]))
+			mlist.append((" "+_("Show/Hide Text"), 'red',pics[1]))
+			mlist.append((" "+_("Pause / Resume Slideshow"), 'green',pics[2]))
+			mlist.append((" "+_("toggle Slideshow random/sorted"), 'yellow',pics[3]))
+			if akti==1:
+				mlist.append((" "+_("Show Exif-Data"), 'info',pics[6]))
+				mlist.append((" "+_("Zoom"), 'blue',pics[4]))
+				mlist.append((" "+_("Start Zoom"), 'ok',pics[19]))
+				mlist.append((" "+_("Zoom range Up"), 'up',pics[11]))
+				mlist.append((" "+_("Zoom range Down"), 'down',pics[10]))
+				mlist.append((" "+_("reduced zoom range"), 'Back',pics[21]))
+				mlist.append((" "+_("increased zoom range"), 'For',pics[22]))
+				mlist.append((" "+_("Rotate 90->"), '9',pics[14]))
+				mlist.append((" "+_("Rotate <-90"), '7',pics[15]))
+				mlist.append((" "+_("Flip image horizontally"), '4',pics[16]))
+				mlist.append((" "+_("Flip image vertically"), '2',pics[17]))
+				mlist.append((" "+_("Image manipulation undo"), '5',pics[18]))
+			mlist.append((" "+_("Next Picture or zoom range right"), 'right',pics[13]))
+			mlist.append((" "+_("Prev. Picture or zoom range left"), 'left',pics[12]))
+			mlist.append((" "+_("Stop Slideshow"), 'stop',pics[20]))
+			mlist.append((" "+_("Add to marked list"), 'record',pics[5]))
+			mlist.append((" "+_("Slide-time faster"), 'nextBouquet',pics[7]))
+			mlist.append((" "+_("Slide-time slower"), 'prevBouquet',pics[7]))
+		
 		self.m_liste=mlist
 		self["m_liste"] = List(mlist)
 		self["m_liste"].style = template
@@ -85,10 +116,6 @@ class PictureCenterFS7_Filemenu(Screen):
 		{
 			"ok": self.run,
 			"cancel": self.exit,
-			"1": self.keyNumberGlobal,
-			"2": self.keyNumberGlobal,
-			"3": self.keyNumberGlobal,
-			"4": self.keyNumberGlobal,
 		}, -1)
 		if skin_zusatz !="SD/":
 			self.onLayoutFinish.append(self.show_pic)
@@ -97,7 +124,10 @@ class PictureCenterFS7_Filemenu(Screen):
 		if skin_zusatz !="SD/":
 			sc = AVSwitch().getFramebufferScale()
 			self.picload.setPara((self["thumb"].instance.size().width(), self["thumb"].instance.size().height(), sc[0], sc[1], False, 1, '#000000'))
-			if self.file2 and len(self.file2):
+			
+			if self.akti==2:
+				pic=plugin_path+"/skin/pictures/mov.jpg"
+			elif self.file2 and len(self.file2):
 				pic=self.file2
 			else:
 				pic=self.file1
@@ -126,7 +156,7 @@ class PictureCenterFS7_Filemenu(Screen):
 		elif returnValue == 'save_rotat':
 			self.save_rotat()
 		else:
-		    pass
+		    self.close(returnValue)
 
 
 
@@ -163,8 +193,6 @@ class PictureCenterFS7_Filemenu(Screen):
 
 	def callCopy(self, path):
 		if path is not None:
-			#f=open("/tmp/files.txt","a")
-			#f.write(self.file1+"\n"+self.file2+"\n")
 			self.copy_source=self.file2
 			self.copy_target= path + self.filename
 			if pathExists(path +  self.filename):

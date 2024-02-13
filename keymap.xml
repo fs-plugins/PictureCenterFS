@@ -39,8 +39,9 @@
 		<key id="KEY_MENU" mapto="menu" flags="m" />
 		<key id="KEY_EXIT" mapto="cancel" flags="m" />
 		<key id="KEY_INFO" mapto="info" flags="m" />
+		<key id="KEY_EPG" mapto="info" flags="m" />
 		<key id="KEY_HELP" mapto="contextMenu" flags="m" />
-                <key id="KEY_TEXT" mapto="text" flags="m" />
+  		<key id="KEY_TEXT" mapto="text" flags="m" />
                 <key id="KEY_RECORD" mapto="record" flags="m" />
 		<key id="KEY_REWIND" mapto="rewind" flags="b" />
 		<key id="KEY_FASTFORWARD" mapto="fastfor" flags="b" />

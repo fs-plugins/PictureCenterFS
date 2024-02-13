@@ -1707,6 +1707,7 @@ class Pic_Thumb(Screen, HelpableScreen):
 				info= self.picload.getInfo(self.filelist[self.index][T_FULL])
 			self.session.open(Show_Exif, info,self.filelist[self.index][T_FULL])
 
+
 	def KeyOk(self):
 		if self.maxentry < 0:
 			return
@@ -2198,10 +2199,13 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				self.zoom_out()
 				self.rotat2()
 
+
 	def blue(self):
-		if self.slideTimer.isActive():
-			self.PlayPause()
+		if self.move==1:
+			self.session.open(MessageBox,_("Zoom not available in videos"),type = MessageBox.TYPE_INFO,timeout = 5)
 		else:
+			if self.slideTimer.isActive():
+				self.PlayPause()
 			if self.load==False and self.zoom_on==0 and self.move==0:
 				self.zoom_on=1
 				self["klo"].show()
@@ -2615,14 +2619,14 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				if self.slideshow==1 and self.pause==0:self.PlayPause()
 				if self.rotate_index:
 					self.clear_rotate(1)
-		else:
-			if self.move==1:
-				self.session.nav.stopService()
-				self.currPic = []
-				self.prev()
-				self.erststart=0
-				self.shownow = True
-				self.start_decode()
+				else:
+					if self.move==1:
+						self.session.nav.stopService()
+					self.currPic = []
+					self.prev()
+					self.erststart=0
+					self.shownow = True
+					self.start_decode()
 
 	def nextPic(self):
 		self.moveTimer.stop()
@@ -2643,7 +2647,9 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 
 	def Pic_tools(self):
 		if self.slideshow==1 and self.pause==0:self.PlayPause()
+		r=1
 		if self.move==1:
+			r=2
 			self["pic"].show()
 			self.session.nav.playService(self.altservice)
 			self.move=0
@@ -2651,28 +2657,54 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			pic=self.rot_source
 		else:
 			pic=self.filelist[self.akt_index][0]
-		self.session.openWithCallback(self.Pic_tools_back,PictureCenterFS7_Filemenu,pic,self.rotat_pic)
+		self.session.openWithCallback(self.Pic_tools_back,PictureCenterFS7_Filemenu,pic,self.rotat_pic,r)
 
 	def Pic_tools_back(self,edit=None):
 		if self.rotate_index !=None:
 			self.clear_rotate()
 		elif edit:
-			if self.path:
-				if self.markerfile:
-					self.filelist=read_marks(self.path,None,self.filelist[self.akt_index][0])
-				else:
-					list_new=file_list(self.path).Dateiliste
-					add_list= [x for x in list_new if not x in self.filelist]
-					self.filelist=[x for x in self.filelist if x in list_new]
-					if len(add_list):
-						add_list.reverse()
-						for x in add_list:
-							self.filelist.insert(self.akt_index,x)
-				if len(self.filelist):
-					self.maxentry=len(self.filelist)-1
-					self.nextPic()
-				else:
-					self.Exit()
+			if str(edit)=="1":
+				if self.path:
+					if self.markerfile:
+						self.filelist=read_marks(self.path,None,self.filelist[self.akt_index][0])
+					else:
+						list_new=file_list(self.path).Dateiliste
+						add_list= [x for x in list_new if not x in self.filelist]
+						self.filelist=[x for x in self.filelist if x in list_new]
+						if len(add_list):
+							add_list.reverse()
+							for x in add_list:
+								self.filelist.insert(self.akt_index,x)
+					if len(self.filelist):
+						self.maxentry=len(self.filelist)-1
+						self.nextPic()
+					else:
+						self.Exit()
+			else:
+				mb=str(edit)
+				if mb=="cancel":self.Exit()
+				elif mb=="red":self.text()
+				elif mb=="yellow":self.toggle_art()
+				elif mb=="green":self.PlayPause()
+				elif mb=="blue":self.blue()
+				elif mb=="Back":self.zoomfenster_minus()
+				elif mb=="For":self.zoomfenster_plus()
+				elif mb=="info":self.StartExif()
+				elif mb=="Stop Slideshow":self.Slide_stop()
+				elif mb=="nextBouquet":self.faster()
+				elif mb=="prevBouquet":self.slower()
+				elif mb=="9":self.rotat_rechts()
+				elif mb=="7":self.rotat_links()
+				elif mb=="4":self.FLIP_TOP_BOTTOM()
+				elif mb=="2":self.FLIP_LEFT_RIGHT()
+				elif mb=="5":self.manipulation_exit()
+				elif mb=="ok":self.KeyOk()
+				elif mb=="left":self.prevPic()
+				elif mb=="up":self.zoom_up()
+				elif mb=="down":self.zoom_down()
+				elif mb=="right":self.nextPic()
+
+				self.nextPic()						
 		else:
 			self.nextPic()
 		if self.pause==1:self.Pause_end()
@@ -2691,6 +2723,8 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			if e_date is None:
 				e_date=self.picload.getInfo(self.filelist[self.akt_index][0])
 			self.session.openWithCallback(self.restart,Show_Exif, e_date,self.filelist[self.akt_index][0])
+		else:
+			self.session.open(MessageBox,_("No Exif data available"),type = MessageBox.TYPE_INFO,timeout = 5)
 
 	def restart(self):
 		pass
