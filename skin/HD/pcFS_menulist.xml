@@ -1,8 +1,7 @@
-  <screen name ="PictureCenterFS7_Filemenu" position="center,center" size="1280,720" title="PictureCenterFS" flags="wfNoBorder" >
-    <ePixmap position="190,120" zPosition="-10" size="900,520" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/HD/pictures/bg.png" transparent="0" alphatest="on"/> 
-    <eLabel position="705,145"  size="3,430" backgroundColor="#5d5a3a"/>
-    <eLabel position="200,595"  size="870,3" backgroundColor="#5d5a3a"/>
-                <widget source="m_liste" render="Listbox" position="210,160" size="480,330" scrollbarMode="showOnDemand" backgroundColor="#000000" >
+  <screen name ="PictureCenterFS7_Filemenu" position="center,center" size="1220,660" title="PictureCenterFS" flags="wfNoBorder" >
+    <ePixmap position="190,20" zPosition="-10" size="900,640" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/HD/pictures/bg.png" transparent="0" alphatest="on"/> 
+    <eLabel position="725,30"  size="3,600" backgroundColor="#5d5a3a"/>
+                <widget source="m_liste" render="Listbox" position="190,20" size="500,640" scrollbarMode="showOnDemand" backgroundColor="#000000" >
 			<convert type="TemplatedMultiContent">
 			{"templates": 
                             {"default": (40, [
@@ -18,6 +17,5 @@
 			</convert>
 		</widget>
 
-    <widget name="thumb" position="730,180" zPosition="2" size="300,300" alphatest="blend" />
-    <ePixmap position="210,605" zPosition="-10" size="40,30" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/PictureCenterFS/skin/pictures/key_ok.png" transparent="1" alphatest="on"/>
+    <widget name="thumb" position="750,180" zPosition="2" size="300,300" alphatest="blend" />
   </screen>
