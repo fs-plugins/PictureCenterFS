@@ -608,4 +608,10 @@ msgstr ""
 msgid "Select Options area"
 msgstr ""
 
+msgid "Zoom not available in videos"
+msgstr ""
+
+msgid "No Exif data available"
+msgstr ""
+
 
