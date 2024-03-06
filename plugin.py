@@ -54,15 +54,8 @@ from threading import Thread
 import threading
 from .files import dirSelect, PictureCenterFS7_Filemenu, backup, save_mark
 
-
 dat = "/etc/ConfFS/PictureCenterFS.dat"
 all_plugin_path = "/usr/lib/enigma2/python/Plugins/Extensions/"
-
-try:
-	from enigma import eMediaDatabase
-	DPKG = True
-except:
-	DPKG = False
 
 plugin_path=all_plugin_path+"PictureCenterFS"
 skin_ext=plugin_path +"/skin/"
@@ -250,7 +243,7 @@ try:
 	from enigma import gMainDC
 except:
 	pass
-
+DPKG = True
 
 class PictureCenterFS7(Screen, HelpableScreen):
 	tmpskin = open(skin_ext+skin_ext_zusatz +"pcfs.xml")
@@ -258,6 +251,7 @@ class PictureCenterFS7(Screen, HelpableScreen):
 	tmpskin.close()
 
 	def __init__(self, session,):
+		global DPKG
 		self.alt_osd_alpha = None
 		self.markfile=None
 		self.exiter=0
@@ -316,12 +310,13 @@ class PictureCenterFS7(Screen, HelpableScreen):
 		self.hide_button()
 		self.picload = ePicLoad()
 		self.ThumbTimer = eTimer()
-		if DPKG:
-			self.picload_conn = self.picload.PictureData.connect(self.showPic)
-			self.ThumbTimer_conn = self.ThumbTimer.timeout.connect(self.showThn)
-		else:
+		if hasattr(self.ThumbTimer, 'callback'):
+			DPKG = False
 			self.picload.PictureData.get().append(self.showPic)
 			self.ThumbTimer.callback.append(self.showThn)
+		else:
+			self.picload_conn = self.picload.PictureData.connect(self.showPic)
+			self.ThumbTimer_conn = self.ThumbTimer.timeout.connect(self.showThn)
 		self["pc_list"].onSelectionChanged.append(self.selectionChanged)
 		self.onLayoutFinish.append(self.setConf)
 		self.onLayoutFinish.append(self.start)
