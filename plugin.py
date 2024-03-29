@@ -1996,6 +1996,8 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		space_left = distance_infoline2.value[0]-100
 		self.zeil_size=self["play_icon"].instance.size().height()
 		symb_size=(0,0)
+		if self.symbols_on != True:
+		    self["play_icon"].hide()
 		if fromskin.value==2:
 			self.instance.resize(eSize(self.oldsize[0],self.oldsize[1]))
 			self.instance.move(ePoint(0,0))
@@ -2017,12 +2019,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			self["play_icon"].resize(eSize(symb_size[0],symb_size[1]))
 			self["play_icon"].move(ePoint(space_left+5, self.space_top+4))
 			text_size=symb_size[1]-5
-			if self.txt != True:
-				self["pic"].resize(eSize(size_w2-(space*2),size_h-(space*2)))
-				self["pic"].move(ePoint(space,space))
-			else:
-				self["pic"].resize(eSize(size_w2-(space*2),size_h-symb_size[1]-(space*2)))
-				self["pic"].move(ePoint(space,space+symb_size[1]))
+			self["pic"].resize(eSize(size_w2-(space*2),size_h-symb_size[1]-(space*2)))
 			self.text_anfang = space_left+ ((symb_size[0]+10)*1)
 			self.space=space
 			self["bgr2"].resize(eSize(size_w2+50,size_h+50))
@@ -2045,10 +2042,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			self.pause_icon = pics2["pcfs_pause"]
 			self.text_anfang = 0
 			if textcolor.value != "skin": self["txt_zeile"].instance.setForegroundColor(parseColor(textcolor.value))
-		if slideeffekt.value:
-			self["pic2"].resize(eSize(size_w2-(space*2),size_h-(space*2)))
-			self.pic2_pos=(size_w2-space,size_h-space,symb_size[1])
-			self.move_art=0
+
 		if pil_install == "ok" and bgcolor.value != "skin" and bgcolor.value != "transparent":
 			colb=bgcolor.value
 			if bgcolor.value=="skin0":colb="black"
@@ -2059,21 +2053,40 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			self["bgr2"].instance.setPixmapFromFile("/tmp/bgr.png")
 			self["bgr2"].instance.setTransparent(0)
 			self["backline"].instance.setPixmapFromFile("/tmp/tbgr.png")
-		if self.txt != True:
-			self["txt_zeile"].hide()
-			self["backline"].hide()
-		elif z1_bgcolor.value == "transparent":
+		if z1_bgcolor.value == "transparent":
 			self["backline"].hide()
 		if self.art=="random":
 			self.icon=self.random_icon
 		else:
 			self.icon=self.play_icon
+		self.th=self["txt_zeile"].instance.size().height()
+		self.txt_onoff()
+		if slideeffekt.value:
+			self.pic2_pos=(size_w2-space,size_h-space,self.th)
+			self.move_art=0
 		self["play_icon"].instance.setPixmapFromFile(self.icon)
-		if self.slideshow ==0:
-			self["play_icon"].hide()
 		if self.txt == True:self.set_text(_("please wait, loading picture..."))
-		self.picload.setPara([self["pic"].instance.size().width(), self["pic"].instance.size().height(), self.sc[0], self.sc[1], False, 1, self.bgcolor])
 		self.start_decode()
+
+	def txt_onoff(self):
+		self.th=self["txt_zeile"].instance.size().height()+10
+		self["play_icon"].hide()
+		if self.txt != True:
+		    self.th=0
+		    self["txt_zeile"].hide()
+		    self["backline"].hide()
+		    if self.slideshow and self.symbols_on:self["play_icon"].show()
+		else:
+			self["txt_zeile"].show()
+			if self.slideshow and self.symbols_on:self["play_icon"].show()
+			if z1_bgcolor.value != "transparent":self["backline"].show()
+		self.p1_size=(self["pic"].instance.size().width(),self["pic"].instance.size().height()-self.th)
+		self.picload.setPara([self.p1_size[0], self.p1_size[1], self.sc[0], self.sc[1], False, 1, self.bgcolor])
+		self["pic"].resize(eSize(self.p1_size[0],self.p1_size[1]))
+		self["pic2"].resize(eSize(self.p1_size[0],self.p1_size[1]))
+		self["pic"].move(ePoint(self.space,self.space+self.th))
+		self["pic2"].move(ePoint(self.space,self.space+self.th))
+
 
 	def set_text(self, text=""):
 		self["txt_zeile"].setText(text)
@@ -2392,36 +2405,29 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					self.next()
 					self.start_decode()
 					if slideeffekt.value and self.currPic[4] =="pic":
-						try:
-							im = Image.open(self.filelist[self.currPic[1]][0])
-							(width, height) = im.size
-							l_rand= (self.pic2_pos[0]-width)/2
-							o_rand= (self.pic2_pos[1]-height)/2
-							self.move_art=random.randint(1,8)
-						except:
-							self.move_art=0
-							self.movepoint1=self.space
-							self.movepoint2=self.space
+						self.movepoint1=self.space
+						self.movepoint2=self.space+self.th
+						self.move_art=random.randint(1,8)
 						if self.move_art==1:
-							self.movepoint1=0-width-l_rand
-							self.movepoint2=0-width-l_rand
+							self.movepoint1=0-self.p1_size[1]+self.space
+							self.movepoint2=self.movepoint1+self.th
 						elif self.move_art==2:
-							self.movepoint1=width+l_rand+self.space
-							self.movepoint2=0-width-l_rand+self.space
+							self.movepoint1=self.p1_size[0]-self.space
+							self.movepoint2=0-self.movepoint1+self.th
 						elif self.move_art==7:
-							self.movepoint1=width+l_rand
-							self.movepoint2=width+l_rand
+							self.movepoint1=self.p1_size[0]-self.space
+							self.movepoint2=self.movepoint1+self.th
 						elif self.move_art==8:
-							self.movepoint1= 0-width-l_rand+self.space
-							self.movepoint2=width+l_rand+self.space
+							self.movepoint1=0-self.p1_size[1]+self.space
+							self.movepoint2=self.p1_size[1]+self.space+self.th
 						elif self.move_art==3:
-							self.movepoint2=0-height
+							self.movepoint2=0-self.p1_size[1]+self.space
 						elif self.move_art==4:
-							self.movepoint1=width+l_rand
+							self.movepoint1=self.p1_size[0]-self.space
 						elif self.move_art==5:
-							self.movepoint2=self.pic2_pos[0]-o_rand-self.space 
+							self.movepoint2=self.p1_size[1]-self.space
 						elif self.move_art==6:
-							self.movepoint1=0-width-l_rand
+							self.movepoint1=0-self.p1_size[0]+self.space
 						self["pic2"].instance.setPixmap(self.currPic[2])
 						if self.move==1:
 							self["playline"].hide()
@@ -2436,10 +2442,11 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		if slideeffekt.value:
 			soll=1
 			plus=slideeffekt.value
+			space2=self.space+self.th
 			self["pic2"].show()
 			if self.move_art==0:
 				self.movepoint1=self.space
-				self.movepoint2=self.space
+				self.movepoint2=space2
 			elif self.move_art==1:
 				if self.movepoint1<self.space:
 					soll=0
@@ -2451,7 +2458,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					self.movepoint1=self.movepoint1-plus
 					self.movepoint2=self.movepoint2+plus
 			elif self.move_art==3:
-				if self.movepoint2<self.space:
+				if self.movepoint2<space2:
 					soll=0
 					self.movepoint2=self.movepoint2+plus
 			elif self.move_art==4:
@@ -2459,7 +2466,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					soll=0
 					self.movepoint1=self.movepoint1-plus
 			elif self.move_art==5:
-				if self.movepoint2>self.space:
+				if self.movepoint2>space2:
 					soll=0
 					self.movepoint2=self.movepoint2-plus
 			elif self.move_art==6:
@@ -2479,11 +2486,11 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 
 			if soll==0:
 				self["pic2"].move(ePoint(self.movepoint1, self.movepoint2))
-				self.moveTimer.start(50)
+				self.moveTimer.start(self.slidetime)
 			else:
 				self.moveTimer.stop()
-				self.movepoint=0-self.pic2_pos[0]
-				self.movepoint1=0-self.pic2_pos[1]
+				self.movepoint1=0-self.pic2_pos[0]
+				self.movepoint2=0-self.pic2_pos[1]
 				self.ShowPicture()
 
 	def next_from_mov(self):
@@ -2757,21 +2764,21 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				self.symb_hideTimer.start(int(self.symbol_hide)*1000)
 
 	def text(self):
-		size_w = self.instance.size().width()
-		size_h = self.instance.size().height()
+		#size_w = self.instance.size().width()
+		#size_h = self.instance.size().height()
 		if self.txt == False:
 			self.txt = True
-			zeil=self.zeil_size
-			self["txt_zeile"].show()
-			if z1_bgcolor.value != "transparent":self["backline"].show()
+			#zeil=self.zeil_size
+			#self["txt_zeile"].show()
+			
 		else:
 			self.txt = False
-			zeil=0
-			self["txt_zeile"].hide()
-			self["backline"].hide()
-			self["pic"].resize(eSize(size_w-(framesize.value*2),size_h-self.zeil_size-(framesize.value*2)))
-			self["pic"].move(ePoint(framesize.value,framesize.value+zeil))
-			self.picload.setPara([self["pic"].instance.size().width(), self["pic"].instance.size().height(), self.sc[0], self.sc[1], False, 1, self.bgcolor])
+			#zeil=0
+
+		self.txt_onoff()
+			#self["pic"].resize(eSize(size_w-(framesize.value*2),size_h-self.zeil_size-(framesize.value*2)))
+			#self["pic"].move(ePoint(framesize.value,framesize.value+zeil))
+			#self.picload.setPara([self["pic"].instance.size().width(), self["pic"].instance.size().height(), self.sc[0], self.sc[1], False, 1, self.bgcolor])
 
 	def manipulation_exit(self):
 		if self.zoom_on==1:
