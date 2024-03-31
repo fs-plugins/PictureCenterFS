@@ -1,10 +1,10 @@
 ################################################################################################################
-#    PictureCenterFS
-#    Coded by shadowrider (c)2011
-#    https://github.com/fs-plugins/PictureCenterFS
-#    Chrashlogs, Vorschlaege, Beschwerden usw. bitte an plugins (at) fs-plugins.de
+#	PictureCenterFS
+#	Coded by shadowrider (c)2011
+#	https://github.com/fs-plugins/PictureCenterFS
+#	Chrashlogs, Vorschlaege, Beschwerden usw. bitte an plugins (at) fs-plugins.de
 #
-#    license: MIT License
+#	license: MIT License
 ################################################################################################################
 from . import version, _
 
@@ -132,7 +132,7 @@ thumbsize = NoSave(ConfigInteger(default=200, limits=(100, 999)))
 thumbdelaying = NoSave(ConfigInteger(default=500, limits=(100, 9999)))
 distance_infoline2 = NoSave(ConfigSequence(seperator = ",", default=[130,130], limits=[(0,9999),(0,9999)]))
 slidetime = NoSave(ConfigInteger(default=5, limits=(1, 999)))
-slideeffekt = NoSave(ConfigSelection(default=0, choices = [(0, _("Off")), (1, _("best")), (2, _("speed"))]))
+slideeffekt = NoSave(ConfigSelection(default=0, choices = [(0, _("Off")), (1, _("Maximum quality")), (2, _("fast")), (3, _("faster"))]))
 maxtime = NoSave(ConfigInteger(default=30, limits=(1, 60)))
 zoomsize = NoSave(ConfigInteger(default=200, limits=(100, size_h-100)))
 sprungzahl = NoSave(ConfigInteger(default=5, limits=(1, 30)))
@@ -1784,6 +1784,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				pass
 		self.session=session
 		self.slideshow=slideshow
+		self.movetime=slideeffekt.value
 		if str(index)=="saver":
 			self.art=saver_random.value.lower()
 			index=0
@@ -1997,7 +1998,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		self.zeil_size=self["play_icon"].instance.size().height()
 		symb_size=(0,0)
 		if self.symbols_on != True:
-		    self["play_icon"].hide()
+			self["play_icon"].hide()
 		if fromskin.value==2:
 			self.instance.resize(eSize(self.oldsize[0],self.oldsize[1]))
 			self.instance.move(ePoint(0,0))
@@ -2072,10 +2073,10 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		self.th=self["txt_zeile"].instance.size().height()+10
 		self["play_icon"].hide()
 		if self.txt != True:
-		    self.th=0
-		    self["txt_zeile"].hide()
-		    self["backline"].hide()
-		    if self.slideshow and self.symbols_on:self["play_icon"].show()
+			self.th=0
+			self["txt_zeile"].hide()
+			self["backline"].hide()
+			if self.slideshow and self.symbols_on:self["play_icon"].show()
 		else:
 			self["txt_zeile"].show()
 			if self.slideshow and self.symbols_on:self["play_icon"].show()
@@ -2086,7 +2087,6 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		self["pic2"].resize(eSize(self.p1_size[0],self.p1_size[1]))
 		self["pic"].move(ePoint(self.space,self.space+self.th))
 		self["pic2"].move(ePoint(self.space,self.space+self.th))
-
 
 	def set_text(self, text=""):
 		self["txt_zeile"].setText(text)
@@ -2209,7 +2209,6 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				self.zoom_out()
 				self.rotat2()
 
-
 	def blue(self):
 		if self.move==1:
 			self.session.open(MessageBox,_("Zoom not available in videos"),type = MessageBox.TYPE_INFO,timeout = 5)
@@ -2287,8 +2286,6 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			for cb in self.onChangedEntry:
 				cb(play,str(self.maxentry+1),str(num+1),name)
 
-
-
 	def ShowPicture(self):
 		if self.erststart==0:
 			self.erststart=1
@@ -2314,7 +2311,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					self["bgr2"].show()
 				self["pic"].show()
 				self["pic"].instance.setPixmap(self.currPic[2])
-				if slideeffekt.value:self["pic2"].hide()
+				if self.movetime:self["pic2"].hide()
 				self.set_text(self.currPic[0])
 				if self.maxentry > 0 and self.slideshow ==1 and self.pause==0:
 					if self.symbols_on:self["play_icon"].instance.setPixmapFromFile(self.icon)
@@ -2368,6 +2365,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		self.maxTimer.stop()
 		if self.erststart==0 or not self.currPic: 
 			self.currPic=self.currPic0
+			self.akt_index=self.currPic[1]
 			self.ShowPicture()
 			self.next()
 			self.start_decode()
@@ -2402,32 +2400,33 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					self.slideTimer.start(100)
 				elif self.currPic3:
 					self.currPic=self.currPic3
-					self.next()
+					self.next(self.currPic[1])
 					self.start_decode()
-					if slideeffekt.value and self.currPic[4] =="pic":
+					if self.movetime and self.currPic[4] =="pic":
+						if self.txt:self["txt_zeile"].hide()
 						self.movepoint1=self.space
 						self.movepoint2=self.space+self.th
 						self.move_art=random.randint(1,8)
 						if self.move_art==1:
-							self.movepoint1=0-self.p1_size[1]+self.space
+							self.movepoint1=0-self.p1_size[1]#+framesize.value#self.space
 							self.movepoint2=self.movepoint1+self.th
 						elif self.move_art==2:
-							self.movepoint1=self.p1_size[0]-self.space
+							self.movepoint1=self.p1_size[0]-framesize.value#-self.space
 							self.movepoint2=0-self.movepoint1+self.th
 						elif self.move_art==7:
-							self.movepoint1=self.p1_size[0]-self.space
+							self.movepoint1=self.p1_size[0]-framesize.value#self.space
 							self.movepoint2=self.movepoint1+self.th
 						elif self.move_art==8:
-							self.movepoint1=0-self.p1_size[1]+self.space
-							self.movepoint2=self.p1_size[1]+self.space+self.th
+							self.movepoint1=0-self.p1_size[1]#+framesize.value#self.space
+							self.movepoint2=self.p1_size[1]+self.th#+self.space
 						elif self.move_art==3:
-							self.movepoint2=0-self.p1_size[1]+self.space
+							self.movepoint2=0-self.p1_size[1]#+framesize.value#self.space
 						elif self.move_art==4:
-							self.movepoint1=self.p1_size[0]-self.space
+							self.movepoint1=self.p1_size[0]-framesize.value#self.space
 						elif self.move_art==5:
-							self.movepoint2=self.p1_size[1]-self.space
+							self.movepoint2=self.p1_size[1]-framesize.value#self.space
 						elif self.move_art==6:
-							self.movepoint1=0-self.p1_size[0]+self.space
+							self.movepoint1=0-self.p1_size[0]#+framesize.value#self.space
 						self["pic2"].instance.setPixmap(self.currPic[2])
 						if self.move==1:
 							self["playline"].hide()
@@ -2439,9 +2438,9 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 						self.slidePic()
 
 	def movePic(self):
-		if slideeffekt.value:
+		if self.movetime:
 			soll=1
-			plus=slideeffekt.value
+			plus=self.movetime
 			space2=self.space+self.th
 			self["pic2"].show()
 			if self.move_art==0:
@@ -2483,14 +2482,14 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					soll=0
 					self.movepoint1=self.movepoint1+plus
 					self.movepoint2=self.movepoint2-plus
-
 			if soll==0:
 				self["pic2"].move(ePoint(self.movepoint1, self.movepoint2))
-				self.moveTimer.start(self.slidetime)
+				self.moveTimer.start(20)
 			else:
 				self.moveTimer.stop()
 				self.movepoint1=0-self.pic2_pos[0]
 				self.movepoint2=0-self.pic2_pos[1]
+				if self.txt:self["txt_zeile"].show()
 				self.ShowPicture()
 
 	def next_from_mov(self):
@@ -2543,8 +2542,11 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 			elif pic and pic.lower().endswith(typ_mov):
 				self.finish_decode(pic)
 
-	def next(self):
-		self.index = self.akt_index+1
+	def next(self,indx=None):
+		if indx != None:
+			self.index=indx+1
+		else:
+			self.index = self.akt_index+1
 		if self.index > self.maxentry:
 			if self.art=="random":random.shuffle(self.filelist)
 			self.index = 0
@@ -2707,8 +2709,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				elif mb=="up":self.zoom_up()
 				elif mb=="down":self.zoom_down()
 				elif mb=="right":self.nextPic()
-
-				self.nextPic()						
+				self.nextPic()
 		else:
 			self.nextPic()
 		if self.pause==1:self.Pause_end()
@@ -2746,7 +2747,6 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		sl_text=_("Slide Time has been changed to")+" "+str(self.slidetime)+" "+_("seconds")
 		self.session.open(MessageBox,sl_text, MessageBox.TYPE_INFO, timeout = 3)
 
-
 	def toggle_art(self):
 		if self.art == "random":
 			self.filelist.sort(key=lambda x: "".join(x[1]).lower())
@@ -2764,21 +2764,11 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 				self.symb_hideTimer.start(int(self.symbol_hide)*1000)
 
 	def text(self):
-		#size_w = self.instance.size().width()
-		#size_h = self.instance.size().height()
 		if self.txt == False:
 			self.txt = True
-			#zeil=self.zeil_size
-			#self["txt_zeile"].show()
-			
 		else:
 			self.txt = False
-			#zeil=0
-
 		self.txt_onoff()
-			#self["pic"].resize(eSize(size_w-(framesize.value*2),size_h-self.zeil_size-(framesize.value*2)))
-			#self["pic"].move(ePoint(framesize.value,framesize.value+zeil))
-			#self.picload.setPara([self["pic"].instance.size().width(), self["pic"].instance.size().height(), self.sc[0], self.sc[1], False, 1, self.bgcolor])
 
 	def manipulation_exit(self):
 		if self.zoom_on==1:
@@ -2821,6 +2811,8 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		self.close(ref) 
 
 	def Exit(self):
+		self.movetime=0
+		self.moveTimer.stop()
 		self.configparser2 = ConfigParser()
 		self.configparser2.read(dat)
 		if self.configparser2.has_section("last_path"):
@@ -2838,7 +2830,6 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 		fp = open(dat,"w")
 		self.configparser2.write(fp)
 		fp.close()
-		self.moveTimer.stop()
 		self.session.nav.playService(self.altservice)
 		self.instance.resize(eSize(getDesktop(0).size().width(),getDesktop(0).size().height()))
 		if self.zoom_on==1 or self.rotate_index != None:
