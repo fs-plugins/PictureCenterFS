@@ -502,7 +502,10 @@ msgstr ""
 msgid "Thumbnail in filelist"
 msgstr ""
 
-msgid "speed"
+msgid "fast"
+msgstr ""
+
+msgid "faster"
 msgstr ""
 
 msgid "quality"
@@ -612,6 +615,9 @@ msgid "Zoom not available in videos"
 msgstr ""
 
 msgid "No Exif data available"
+msgstr ""
+
+msgid "Maximum quality"
 msgstr ""
 
 
