@@ -2128,9 +2128,9 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 					self.im = Image.open(self.rot_source)
 					if self.im and aktion:
 						if aktion==1:
-							self.im.rotate(270).save('/tmp/changed.'+self.source_typ)
+							self.im.rotate(270, expand = 1).save('/tmp/changed.'+self.source_typ)
 						elif aktion==2:
-							self.im.rotate(90).save('/tmp/changed.'+self.source_typ)
+							self.im.rotate(90, expand = 1).save('/tmp/changed.'+self.source_typ)
 						elif aktion==3:
 							self.im.transpose(method=1).save('/tmp/changed.'+self.source_typ)
 						elif aktion==4:

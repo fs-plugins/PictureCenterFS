@@ -4,10 +4,10 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 from os import environ as os_environ
 import gettext
 
-version="8.53"
+version="8.55"
 def localeInit():
-	lang = language.getLanguage()[:2] # getLanguage returns e.g. "fi_FI" for "language_country"
-	os_environ["LANGUAGE"] = lang # Enigma doesn't set this (or LC_ALL, LC_MESSAGES, LANG). gettext needs it!
+	lang = language.getLanguage()[:2]
+	os_environ["LANGUAGE"] = lang
 	gettext.bindtextdomain("PictureCenterFS", resolveFilename(SCOPE_PLUGINS, "Extensions/PictureCenterFS/locale"))
 
 def _(txt):
