@@ -2535,7 +2535,7 @@ class Pic_Full_View3(Screen, InfoBarSeek, HelpableScreen):
 							grd=90
 						elif dreh=="Bottom-Right":
 							grd=180
-						if grd:im.rotate(grd).save('/tmp/changed2.'+self.source_typ)
+						if grd:im.rotate(grd, expand = 1).save('/tmp/changed2.'+self.source_typ)
 						del im
 						pic='/tmp/changed2.'+self.source_typ
 				self.picload.startDecode(pic)
